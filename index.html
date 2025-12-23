@@ -1,551 +1,1467 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="id" class="h-full">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website OSIS SMA Negeri 6 Medan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .section-fade {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .section-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .progress-bar {
-            transition: width 0.5s ease-in-out;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website OSIS SMA Negeri 6 Medan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+    
+    .card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .tab-content {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-answer.active {
+      max-height: 500px;
+    }
+    
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #e2e8f0;
+      border-top: 5px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .progress-fill {
+      transition: width 1.5s ease-in-out;
+    }
+    
+    .tooltip {
+      position: relative;
+    }
+    
+    .tooltip-text {
+      visibility: hidden;
+      width: 120px;
+      background-color: #374151;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+    }
+    
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    
+    .tab-button {
+      transition: all 0.3s ease;
+    }
+    
+    .tab-button.active {
+      background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .card {
+        break-inside: avoid;
+      }
+    }
+    
+    .structure-item {
+      transition: all 0.3s ease;
+    }
+    
+    .structure-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .announcement-badge {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
 </head>
-<body class="h-full bg-gray-50">
-    <!-- Navigation -->
-    <nav class="gradient-bg shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="text-white font-bold text-xl">
-                        OSIS SMA Negeri 6 Medan
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#beranda" class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Beranda</a>
-                        <a href="#visi-misi" class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Visi & Misi</a>
-                        <a href="#struktur" class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Struktur</a>
-                        <a href="#berita" class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Berita</a>
-                        <a href="#program" class="text-white hover:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Program Kerja</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-gray-200 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+<body class="h-full bg-gradient-to-br from-gray-50 to-blue-50">
+  <!-- Loading Overlay -->
+  <div id="loading" class="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
+    <div class="text-center">
+      <div class="spinner mx-auto mb-4"></div>
+      <p class="text-gray-700 font-semibold animate-pulse">Memuat Website OSIS...</p>
+      <div class="w-48 h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
+        <div id="loading-bar" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg z-40 hover:bg-blue-700 transition opacity-0 transform translate-y-10 transition-all duration-300 no-print">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Header -->
+  <header class="gradient-bg text-white py-8 px-4 sm:px-6 shadow-lg relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3 animate-pulse" style="animation-delay: 0.5s;"></div>
+    </div>
+
+    <div class="container mx-auto relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="flex items-center space-x-4 mb-6 md:mb-0">
+          <div class="bg-white p-3 rounded-full shadow-lg">
+            <img src="https://img.icons8.com/color/96/000000/school-building.png" alt="Logo Sekolah" class="w-16 h-16">
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold">OSIS SMA Negeri 6 Medan</h1>
+            <p class="text-blue-100 mt-1">Organisasi Siswa Intra Sekolah Periode 2025/2026</p>
+          </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-purple-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#beranda" class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Beranda</a>
-                <a href="#visi-misi" class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Visi & Misi</a>
-                <a href="#struktur" class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Struktur</a>
-                <a href="#berita" class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Berita</a>
-                <a href="#program" class="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">Program Kerja</a>
-            </div>
+        <div class="text-center md:text-right">
+          <p class="text-lg">"We Are Dare to Dream!"</p>
+          <p class="text-blue-100 mt-2">Jl. Ansari No. 34, Medan</p>
         </div>
-    </nav>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="gradient-bg text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">OSIS SMA Negeri 6 Medan</h1>
-            <p class="text-xl md:text-2xl mb-3 opacity-90">We Are DARE TO DREAM!</p>
-            <p class="text-xl md:text-2xl mb-3 opacity-90">KABINET GEMA RAKYAT</p>
-            <p class="text-lg mb-8 max-w-3xl mx-auto opacity-80">Membangun karakter siswa yang berintegritas, kreatif, dan berprestasi untuk masa depan yang gemilang</p>
-            <div class="flex justify-center space-x-4">
-                <a href="#visi-misi" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">Pelajari Lebih Lanjut</a>
-                <a href="#program" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">Program Kerja</a>
-            </div>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-30 no-print">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center py-4">
+        <div class="mb-4 md:mb-0">
+          <h2 class="text-xl font-bold text-gray-800">Navigasi Utama</h2>
         </div>
-    </section>
-
-    <!-- Visi & Misi Section -->
-    <section id="visi-misi" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Visi & Misi OSIS SMA Negeri 6 Medan</h2>
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-600 mb-4">Periode 2025/2026</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="section-fade">
-                    <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-2xl card-hover">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-purple-600 p-3 rounded-full mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">Visi</h3>
-                        </div>
-                        <p class="text-gray-700 text-lg leading-relaxed">Mewujudkan organisasi yang peduli lingkungan, berorientasi pada kepentingan rakyat, menjunjung tinggi nilai-nilai kemanusiaan dan transparansi, serta menghadirkan program-program populis yang berdampak nyata bagi anggota dan masyarakat, dengan tetap menjaga integritas serta nilai luhur organisasi.</p>
-                    </div>
-                </div>
-                <div class="section-fade">
-                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl card-hover">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-blue-600 p-3 rounded-full mr-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900">Misi</h3>
-                        </div>
-                        <ul class="text-gray-700 text-lg leading-relaxed space-y-3">
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Gerakan: Membangun organisasi yang responsif, aktif, dan mampu membawa perubahan nyata</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Ekologis: Menghadirkan program berkelanjutan yang menjaga dan merawat lingkungan</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Mandiri: Mendorong pemberdayaan anggota dan mendorong kemandirian siswa</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Aspiratif: Menjadi organisasi yang siap menampung dan menindak lanjuti setiap aspirasi</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Reformis: Membenahi sistem birokrasi organisasi agar lebih fleksibel dan profesional</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Akomodatif: Memberi ruang yang adil bagi anggota dan siswa untuk berpartisipasi dalam sebuah keputusan</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Kolaboratif: Memperkuat dan memperluas kerja sama dengan seluruh pihak untuk menghadirkan organisasi yang inklusif</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Yakin Hijau: Menanamkan budaya peduli lingkugan sebagai identitas siswa modern</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Adil: Menegakkan keadilan dan menolak segala bentuk diskriminasi</li>
-                            <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Terbuka: Menghadirkan transparansi dalam pengelolaan anggaran, pengambilan keputusan, dan komunikasi</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-wrap gap-4">
+          <button class="tab-button active text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="beranda">Beranda</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="struktur">Struktur</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="progja">Program</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="pengumuman">Pengumuman</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="galeri">Galeri</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="kontak">Kontak</button>
         </div>
-    </section>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Struktur Organisasi Section -->
-    <section id="struktur" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Struktur Organisasi</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto"></div>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Beranda Tab -->
+    <div id="tab-beranda" class="tab-content">
+      <!-- Welcome Section -->
+      <section class="bg-white rounded-xl shadow-lg p-6 mb-8 card">
+        <div class="flex flex-col sm:flex-row items-start gap-4">
+          <div class="text-3xl sm:text-4xl text-blue-600 mx-auto sm:mx-0">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="text-center sm:text-left">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Selamat Datang di Website OSIS SMA Negeri 6 Medan</h2>
+            <p class="text-gray-600 text-base sm:text-lg mb-4">
+              Organisasi Siswa Intra Sekolah (OSIS) SMA Negeri 6 Medan merupakan wadah bagi siswa untuk mengembangkan potensi diri, berorganisasi, dan berkontribusi dalam memajukan sekolah. Periode 2025/2026 dengan tema "GEMA RAKYAT".
+            </p>
+            <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+              <span class="bg-blue-100 text-blue-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
+                <i class="fas fa-star mr-1"></i> Sekolah Adiwiyata
+              </span>
+              <span class="bg-green-100 text-green-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
+                <i class="fas fa-trophy mr-1"></i> Berprestasi Nasional
+              </span>
+              <span class="bg-purple-100 text-purple-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
+                <i class="fas fa-heart mr-1"></i> Peduli Lingkungan
+              </span>
             </div>
-            <div class="section-fade">
-                <!-- Pembina OSIS -->
-                <div class="text-center mb-12">
-                    <div class="bg-gradient-to-r from-red-600 to-violet-600 text-white p-6 rounded-2xl shadow-lg inline-block">
-                        <h3 class="text-xl font-bold">Pembina OSIS</h3>
-                        <p class="text-lg mt-2">Dra. Hj. Iba Sabirin</p>
-                    </div>
-                </div>
-
-                <!-- Pengurus Inti -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-                    <!-- Ketua OSIS -->
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-2xl shadow-lg">
-                            <h3 class="text-xl font-bold">Ketua OSIS</h3>
-                            <p class="text-lg mt-2">Naufal Raihan</p>
-                            <p class="text-purple-100 text-sm mt-1">Pemimpin Organisasi</p>
-                        </div>
-                    </div>
-                    <!-- Wakil Ketua OSIS -->
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-6 rounded-2xl shadow-lg">
-                            <h3 class="text-xl font-bold">Wakil Ketua OSIS</h3>
-                            <p class="text-lg mt-2">Kevin Andrean Tanjung</p>
-                            <p class="text-blue-100 text-sm mt-1">Pendamping Ketua</p>
-                        </div>
-                    </div>
-                    <!-- Sekretaris -->
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white p-6 rounded-2xl shadow-lg">
-                            <h3 class="text-xl font-bold">Sekretaris</h3>
-                            <p class="text-lg mt-2">Nia Amelia Putri</p>
-                            <p class="text-green-100 text-sm mt-1">Administrasi & Dokumentasi</p>
-                        </div>
-                    </div>
-                    <!-- Bendahara -->
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl shadow-lg">
-                            <h3 class="text-xl font-bold">Bendahara</h3>
-                            <p class="text-lg mt-2">Fauziah Dwi Azura</p>
-                            <p class="text-orange-100 text-sm mt-1">Keuangan Organisasi</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wakil Sekretaris dan Bendahara -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-green-400 to-teal-400 text-white p-4 rounded-xl shadow-lg">
-                            <h3 class="text-lg font-bold">Wakil Sekretaris</h3>
-                            <p class="mt-1">Aisya Fidya Rokhma</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-orange-400 to-red-400 text-white p-4 rounded-xl shadow-lg">
-                            <h3 class="text-lg font-bold">Wakil Bendahara</h3>
-                            <p class="mt-1">Hanindita Rizqiah Fitri</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Koordinator Bidang -->
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Keagamaan (Bid.1)</h3>
-                            <p class="text-sm text-indigo-100">Kegiatan Keagamaan</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-pink-500 to-rose-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Budi Pekerti (Bid.2)</h3>
-                            <p class="text-sm text-pink-100">Prestasi & Pembelajaran</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Penguatan Wawasan Kebangsaan (Bid.3)</h3>
-                            <p class="text-sm text-cyan-100">Kesehatan & Kebugaran</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Penguatan Prestasi Akademik, Seni, dan Olahraga (Bid.4)</h3>
-                            <p class="text-sm text-emerald-100">Kreativitas & Budaya</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-amber-500 to-orange-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Penguatan Demokrasi, HAM, Politik, Toleransi, dan Lingkungan (Bid.5)</h3>
-                            <p class="text-sm text-amber-100">Kepedulian Masyarakat</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-violet-500 to-purple-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Kewirausahaan (Bid.6)</h3>
-                            <p class="text-sm text-violet-100">Kebersihan & Kelestarian</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-cyan-500 to-purple-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Kesehatan Jasmani (Bid.7)</h3>
-                            <p class="text-sm text-violet-100">Kebersihan & Kelestarian</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-violet-500 to-blue-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Sastra, Bahasa, dan Budaya (Bid.8)</h3>
-                            <p class="text-sm text-violet-100">Kebersihan & Kelestarian</p>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gradient-to-r from-orange-500 to-yellow-500 text-white p-4 rounded-xl shadow-lg card-hover">
-                            <h3 class="font-bold mb-2">Koordinator Bidang Dokumentasi dan Teknologi (Bid.9)</h3>
-                            <p class="text-sm text-violet-100">Renata Sianturi</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Berita Section -->
-    <section id="berita" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Berita Terkini</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600">Update terbaru kegiatan dan informasi dari OSIS</p>
+      <!-- Visi Misi Section -->
+      <section class="mb-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-2">Visi & Misi OSIS</h2>
+          <p class="text-gray-600">Landasan pergerakan dan tujuan organisasi</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Visi -->
+          <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-eye text-white text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Visi OSIS</h3>
+            </div>
+            <p class="text-lg font-semibold text-blue-700 mb-4 italic">
+              "Mewujudkan OSIS SMA Negeri 6 Medan sebagai organisasi siswa yang unggul, berkarakter, dan berprestasi dalam membangun sekolah yang bermartabat"
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                <p class="text-gray-600">Mengembangkan potensi siswa secara optimal</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                <p class="text-gray-600">Menciptakan lingkungan sekolah yang kondusif</p>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                <p class="text-gray-600">Membangun karakter siswa yang berakhlak mulia</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Misi -->
+          <div class="card bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-bullseye text-white text-xl"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Misi OSIS</h3>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold">1</span>
+                </div>
+                <p class="text-gray-600">Meningkatkan kualitas ibadah dan akhlak siswa melalui kegiatan keagamaan</p>
+              </div>
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold">2</span>
+                </div>
+                <p class="text-gray-600">Mengembangkan bakat dan minat siswa melalui kegiatan ekstrakurikuler</p>
+              </div>
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold">3</span>
+                </div>
+                <p class="text-gray-600">Meningkatkan prestasi akademik dan non-akademik siswa</p>
+              </div>
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold">4</span>
+                </div>
+                <p class="text-gray-600">Membangun jiwa kepemimpinan dan entrepreneurship siswa</p>
+              </div>
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold">5</span>
+                </div>
+                <p class="text-gray-600">Menjalin hubungan baik antar siswa, guru, dan masyarakat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">35</div>
+          <div class="text-xs sm:text-sm text-gray-600">Total Pengurus</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-2xl sm:text-3xl font-bold text-green-600 mb-1">9</div>
+          <div class="text-xs sm:text-sm text-gray-600">Bidang Utama</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-2xl sm:text-3xl font-bold text-purple-600 mb-1">12</div>
+          <div class="text-xs sm:text-sm text-gray-600">Program Kerja</div>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-2xl sm:text-3xl font-bold text-orange-600 mb-1">4</div>
+          <div class="text-xs sm:text-sm text-gray-600">Ekstrakurikuler</div>
+        </div>
+      </div>
+
+      <!-- Tombol Cetak di Beranda -->
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg shadow transition flex items-center">
+          <i class="fas fa-print mr-2"></i> Cetak Halaman
+        </button>
+      </div>
+    </div>
+
+    <!-- Struktur Tab -->
+    <div id="tab-struktur" class="tab-content hidden">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Struktur Organisasi OSIS</h2>
+        <p class="text-gray-600">Periode 2025/2026 - SMA Negeri 6 Medan</p>
+        <div class="flex gap-4 mt-4">
+          <button id="print-structure" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+            <i class="fas fa-print mr-2"></i>Cetak Struktur
+          </button>
+          <button id="export-structure" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+            <i class="fas fa-download mr-2"></i>Export Data
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Pimpinan Inti -->
+        <div class="card bg-white p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">Pimpinan Inti</h3>
+          <div class="space-y-4">
+            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">NAUFAL RAIHAN</h4>
+                <p class="text-sm text-gray-600">Ketua OSIS</p>
+              </div>
+            </div>
+            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">KEVIN ANDREAN TANJUNG</h4>
+                <p class="text-sm text-gray-600">Wakil Ketua OSIS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sekretariat & Bendahara -->
+        <div class="card bg-white p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">Sekretariat & Bendahara</h3>
+          <div class="space-y-4">
+            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">NIA AMELIA PUTRI</h4>
+                <p class="text-sm text-gray-600">Sekretaris Umum</p>
+              </div>
+            </div>
+            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/signature.png" alt="Wakil Sekretaris" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">AISYA FIDYA ROKHMA</h4>
+                <p class="text-sm text-gray-600">Wakil Sekretaris</p>
+              </div>
+            </div>
+            <div class="flex items-center p-3 bg-yellow-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">FAUZIAH DWI AZURA</h4>
+                <p class="text-sm text-gray-600">Bendahara Umum</p>
+              </div>
+            </div>
+            <div class="flex items-center p-3 bg-yellow-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/calculator.png" alt="Wakil Bendahara" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">HANINDITA RIZQIAH FITRI</h4>
+                <p class="text-sm text-gray-600">Wakil Bendahara</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Koordinator Bidang -->
+        <div class="card bg-white p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-blue-600 mb-4">Koordinator Bidang</h3>
+          <div class="space-y-4">
+            <!-- Bidang 1: Keagamaan -->
+            <div class="flex items-center p-3 bg-purple-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">MUHAMMAD ALI ZAIN</h4>
+                <p class="text-sm text-gray-600">Bidang Keagamaan</p>
+              </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Berita 1 - Default -->
-<div class="bg-white rounded-2xl shadow-lg card-hover section-fade">
-    <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-48 rounded-t-2xl flex items-center justify-center">
-        <span class="text-white text-4xl">📢</span>
+            <!-- Bidang 2: Budi Pekerti -->
+            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">SITI AMINAH</h4>
+                <p class="text-sm text-gray-600">Bidang Budi Pekerti</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 3: Bela Negara -->
+            <div class="flex items-center p-3 bg-red-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">RIO FERNANDO</h4>
+                <p class="text-sm text-gray-600">Bidang Bela Negara</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 4: Prestasi -->
+            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">DEWI SARTIKA</h4>
+                <p class="text-sm text-gray-600">Bidang Prestasi</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 5: HAM & Lingkungan -->
+            <div class="flex items-center p-3 bg-teal-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">NUR HAYATI</h4>
+                <p class="text-sm text-gray-600">Bidang Lingkungan</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 6: Wirausaha -->
+            <div class="flex items-center p-3 bg-orange-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">FARID ABDULLAH</h4>
+                <p class="text-sm text-gray-600">Bidang Wirausaha</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 7: Kesehatan Jasmani -->
+            <div class="flex items-center p-3 bg-pink-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">ANJANI PUTRI</h4>
+                <p class="text-sm text-gray-600">Bidang Kesehatan</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 8: Sastra & Budaya -->
+            <div class="flex items-center p-3 bg-indigo-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/classical-music.png" alt="Seni Budaya" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">RAFLI AKBAR</h4>
+                <p class="text-sm text-gray-600">Bidang Seni & Budaya</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 9: Dokumentasi & Teknologi -->
+            <div class="flex items-center p-3 bg-cyan-50 rounded-lg structure-item">
+              <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/camera.png" alt="Dokumentasi" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold">DINA AMALIA</h4>
+                <p class="text-sm text-gray-600">Bidang Dokumentasi & IT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Struktur Diagram -->
+      <div class="card bg-white p-6 shadow-lg mb-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">Diagram Struktur OSIS</h3>
+        <div class="relative">
+          <!-- Level 1: Pembina -->
+          <div class="flex justify-center mb-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Pembina" class="w-10 h-10">
+              </div>
+              <div class="bg-red-100 rounded-lg p-3">
+                <h4 class="font-bold">Dra., Hj. Iba Sabirin</h4>
+                <p class="text-sm text-gray-600">Pembina OSIS</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 2: Ketua & Wakil -->
+          <div class="flex justify-center gap-8 mb-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-10 h-10">
+              </div>
+              <div class="bg-blue-100 rounded-lg p-3">
+                <h4 class="font-bold">NAUFAL RAIHAN</h4>
+                <p class="text-sm text-gray-600">Ketua OSIS</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-10 h-10">
+              </div>
+              <div class="bg-blue-100 rounded-lg p-3">
+                <h4 class="font-bold">KEVIN ANDREAN TANJUNG</h4>
+                <p class="text-sm text-gray-600">Wakil Ketua OSIS</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 3: Sekretariat & Bendahara -->
+          <div class="flex justify-center gap-8 mb-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-10 h-10">
+              </div>
+              <div class="bg-green-100 rounded-lg p-3">
+                <h4 class="font-bold">NIA AMELIA PUTRI</h4>
+                <p class="text-sm text-gray-600">Sekretaris Umum</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-10 h-10">
+              </div>
+              <div class="bg-yellow-100 rounded-lg p-3">
+                <h4 class="font-bold">FAUZIAH DWI AZURA</h4>
+                <p class="text-sm text-gray-600">Bendahara Umum</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 4: Koordinator Bidang -->
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Bidang 1 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-8 h-8">
+              </div>
+              <div class="bg-purple-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">MUHAMMAD ALI ZAIN</h4>
+                <p class="text-xs text-gray-600">Keagamaan</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 2 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-8 h-8">
+              </div>
+              <div class="bg-blue-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">SITI AMINAH</h4>
+                <p class="text-xs text-gray-600">Budi Pekerti</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 3 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-8 h-8">
+              </div>
+              <div class="bg-red-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">RIO FERNANDO</h4>
+                <p class="text-xs text-gray-600">Bela Negara</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 4 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-8 h-8">
+              </div>
+              <div class="bg-green-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">DEWI SARTIKA</h4>
+                <p class="text-xs text-gray-600">Prestasi</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 5 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+              </div>
+              <div class="bg-teal-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">NUR HAYATI</h4>
+                <p class="text-xs text-gray-600">Lingkungan</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 6 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-8 h-8">
+              </div>
+              <div class="bg-orange-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">FARID ABDULLAH</h4>
+                <p class="text-xs text-gray-600">Wirausaha</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 7 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-8 h-8">
+              </div>
+              <div class="bg-pink-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">ANJANI PUTRI</h4>
+                <p class="text-xs text-gray-600">Kesehatan</p>
+              </div>
+            </div>
+            
+            <!-- Bidang 8 -->
+            <div class="text-center">
+              <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                <img src="https://img.icons8.com/color/48/000000/classical-music.png" alt="Seni Budaya" class="w-8 h-8">
+              </div>
+              <div class="bg-indigo-100 rounded-lg p-2">
+                <h4 class="font-bold text-sm">RAFLI AKBAR</h4>
+                <p class="text-xs text-gray-600">Seni & Budaya</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="p-6">
-        <div class="flex items-center mb-3">
-            <span class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full">Pengumuman</span>
-            <span class="text-gray-500 text-sm ml-3">15 Des 2024</span>
+
+    <!-- Program Kerja Tab -->
+    <div id="tab-progja" class="tab-content hidden">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Program Kerja OSIS</h2>
+        <p class="text-gray-600">Program unggulan periode 2025/2026</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+              <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Program Lingkungan</h3>
+              <p class="text-gray-600">"SMA 6 Go Green"</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Progress</span>
+              <span class="text-sm font-medium">65%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-green-600 h-2 rounded-full progress-fill" style="width: 65%"></div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Program penghijauan sekolah dengan penanaman 100 pohon dan pengelolaan sampah organik.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>Januari - Desember 2025</span>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Koordinator: NUR HAYATI</span>
+          </div>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Pemilihan Ketua dan Wakil Ketua OSIS Periode 2025/2026</h3>
-        <p class="text-gray-600 mb-4">Hasil pemilihan ketua dan wakil ketua OSIS telah diumumkan. Pasangan calon 03 meraih suara 82,8%.</p>
-        <a href="https://docs.google.com/document/d/1nN2Q1s_5qcaqjirOf6OT8Yhsezh8y1yAYiSPjz4DCHo/edit?usp=drivesdk" target="_blank" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">Baca Selengkapnya →</a>
+
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+              <img src="https://img.icons8.com/color/48/000000/book.png" alt="Pendidikan" class="w-8 h-8">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Bimbingan Belajar</h3>
+              <p class="text-gray-600">"Smart Learning Program"</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Progress</span>
+              <span class="text-sm font-medium">80%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-purple-600 h-2 rounded-full progress-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Program bimbingan belajar untuk persiapan UTBK dan olimpiade sains tingkat sekolah.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>Maret - November 2025</span>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Koordinator: DEWI SARTIKA</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+              <img src="https://img.icons8.com/color/48/000000/charity.png" alt="Bakti Sosial" class="w-8 h-8">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Bakti Sosial</h3>
+              <p class="text-gray-600">"Peduli Sesama"</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Progress</span>
+              <span class="text-sm font-medium">40%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-red-600 h-2 rounded-full progress-fill" style="width: 40%"></div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Kegiatan bakti sosial ke panti asuhan dan bantuan untuk siswa kurang mampu.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>Juni - Agustus 2025</span>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">Koordinator: SITI AMINAH</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+              <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Olahraga" class="w-8 h-8">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-800">Olahraga & Seni</h3>
+              <p class="text-gray-600">"Youth Olympic Fest"</p>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between mb-1">
+              <span class="text-sm font-medium">Progress</span>
+              <span class="text-sm font-medium">90%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-green-600 h-2 rounded-full progress-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Pekan olahraga dan seni antar kelas untuk mengembangkan bakat siswa.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>April - Mei 2025</span>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Koordinator: RAFLI AKBAR</span>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
 
-                <!-- Berita 2 -->
-                <div class="bg-white rounded-2xl shadow-lg card-hover section-fade">
-                    <div class="bg-gradient-to-r from-green-500 to-teal-500 h-48 rounded-t-2xl flex items-center justify-center">
-                        <span class="text-white text-4xl">📅</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="bg-green-100 text-green-600 text-sm px-3 py-1 rounded-full">Pengumuman</span>
-                            <span class="text-gray-500 text-sm ml-3">12 Des 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Jadwal Kegiatan Akhir Tahun 2024</h3>
-                        <p class="text-gray-600 mb-4">OSIS telah menyusun serangkaian kegiatan menarik untuk menyambut akhir tahun 2024.</p>
-                        <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">Baca Selengkapnya →</a>
-                    </div>
-                </div>
+    <!-- Pengumuman Tab -->
+    <div id="tab-pengumuman" class="tab-content hidden">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pengumuman Terbaru</h2>
+        <p class="text-gray-600">Informasi penting seputar kegiatan OSIS</p>
+      </div>
 
-                <!-- Berita 3 -->
-                <div class="bg-white rounded-2xl shadow-lg card-hover section-fade">
-                    <div class="bg-gradient-to-r from-orange-500 to-red-500 h-48 rounded-t-2xl flex items-center justify-center">
-                        <span class="text-white text-4xl">🏆</span>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <span class="bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-full">Prestasi</span>
-                            <span class="text-gray-500 text-sm ml-3">10 Des 2024</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Siswa SMA Negeri 6 Medan Raih Juara Olimpiade</h3>
-                        <p class="text-gray-600 mb-4">Dua siswa berhasil meraih medali emas dalam olimpiade sains tingkat kota Medan.</p>
-                        <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">Baca Selengkapnya →</a>
-                    </div>
-                </div>
+      <div class="space-y-6">
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Rapat Koordinasi OSIS</h3>
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                <span>15 Maret 2025</span>
+                <span class="mx-2">•</span>
+                <i class="fas fa-clock mr-2"></i>
+                <span>13:00 - 15:00 WIB</span>
+              </div>
             </div>
-
-            <div class="text-center mt-12 section-fade">
-                <a href="#" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors inline-flex items-center">
-                    Lihat Semua Berita
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
+            <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full announcement-badge">Penting</span>
+          </div>
+          <p class="text-gray-600 mb-4">Diberitahukan kepada seluruh pengurus OSIS untuk menghadiri rapat koordinasi bulanan yang akan dilaksanakan di Aula Sekolah.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user mr-2"></i>
+              <span>Dra. Hj. Iba Sabirin (Pembina OSIS)</span>
             </div>
+            <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Baca Selengkapnya →</a>
+          </div>
         </div>
-    </section>
 
-    <!-- Program Kerja Section -->
-    <section id="program" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 section-fade">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Program Kerja OSIS</h2>
-                <div class="w-24 h-1 bg-purple-600 mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600">Program unggulan untuk pengembangan siswa dan sekolah</p>
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Pendaftaran Peserta Lomba Debat</h3>
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                <span>20 - 25 Maret 2025</span>
+                <span class="mx-2">•</span>
+                <i class="fas fa-clock mr-2"></i>
+                <span>08:00 - 14:00 WIB</span>
+              </div>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Program Akademik -->
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Pengembangan Akademik dan Non Akademik</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Program Mentoring Sebaya</li>
-                        <li>• Pojok Pengetahuan 17 SDGs</li>
-                        <li>• Pengembangan Minat dan Bakat (Lomba Debat, Terima Karya)</li>
-                        <li>• ASIXVISION</li>
-                    </ul>
-                </div>
-
-                <!-- Program Olahraga -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-green-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Olahraga dan Efisiensi Kerja</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Liga Olahraga SMA Negeri 6 Medan (O2SN)</li>
-                        <li>• Digitalisasi Keuangan OSIS</li>
-                        <li>• Digitalisasi Arsip OSIS</li>
-                        <li>• Publikasi Notulen Rapat</li>
-                        <li>• Penerbitan Standar Prosedural OSIS</li>
-                        <li>• Digitalisasi Sistem Administrasi OSIS</li>
-                        <li>• Publikasi Pengelolaan Anggaran</li>
-                    </ul>
-                </div>
-
-                <!-- Program Seni & Budaya -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Pelayanan 1</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• OSIS Careline (Layanan Cepat Tanggap)</li>
-                        <li>• ECHO (Every Students Choice and Opinion)</li>
-                        <li>• Musyawarah Rencana Pengembangan Sekolah</li>
-                        <li>• Diskusi Bareng OSIS</li>
-                        <li>• Kotak Suara Digital</li>
-                        <li>• Papan Informasi Aspirasi</li>
-                        <li>• OSIS Quick Poll</li>
-                        <li>• Podcast Suara Rakyat</li>
-                    </ul>
-                </div>
-
-                <!-- Program Sosial -->
-                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-orange-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Pelayanan 2</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Program Open Proposal</li>
-                        <li>• Channel Broadcast Informasi Harian</li>
-                        <li>• Bantuan Korban Bencana</li>
-                        <li>• Kolaborasi Riset dan Teknologi</li>
-                    </ul>
-                </div>
-
-                <!-- Program Lingkungan -->
-                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-teal-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Lingkungan</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Green School Movement</li>
-                        <li>• Green Class Competition</li>
-                        <li>• Satu Kelas Satu Tanaman</li>
-                        <li>• Kampanye Hemat Energi</li>
-                        <li>• Jurnalisme Hijau</li>
-                        <li>• Program Perbaikan dan Pembenahan Sanitasi</li>
-                        <li>• Gerakan Alat Makan Ramah Lingkungan</li>
-                        <li>• Eco Creative Project</li>
-                    </ul>
-                </div>
-
-                <!-- Program Keagamaan -->
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-6 rounded-2xl card-hover section-fade">
-                    <div class="bg-indigo-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M10.5 3L12 2l1.5 1H21v6H3V3h7.5z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Program Spiritual</h3>
-                    <ul class="text-gray-700 space-y-2">
-                        <li>• Penguatan Budi Pekerti dan Moralitas</li>
-                        <li>• Peringatan Hari Besar</li>
-                        <li>• Berbagi Takjil</li>
-                        <li>• Buka Puasa Bersama</li>
-                    </ul>
-                </div>
+            <span class="bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full announcement-badge">Aktif</span>
+          </div>
+          <p class="text-gray-600 mb-4">Bagi siswa yang berminat mengikuti lomba debat bahasa Inggris tingkat kota, dapat mendaftar di ruang OSIS.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user mr-2"></i>
+              <span>DEWI SARTIKA (Koord. Bidang Prestasi)</span>
             </div>
+            <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Baca Selengkapnya →</a>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="gradient-bg text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">OSIS SMA Negeri 6 Medan</h3>
-                    <p class="text-purple-100 mb-4">Organisasi Siswa Intra Sekolah yang berkomitmen untuk mengembangkan potensi siswa dan membangun karakter generasi muda.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-purple-200 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="text-white hover:text-purple-200 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                            </svg>
-                        </a>
-                        <a href="https://instagram.com/osissman6_mdn" target="_blank" class="text-white hover:text-purple-200 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
-                    <div class="space-y-2 text-purple-100">
-                        <p>📍 Jl. Ansari No.34, Medan, Sumatera Utara</p>
-                        <p>📞 (+62) 821-8310-8567</p>
-                        <p>📷 @osissman6_mdn</p>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Jam Operasional</h4>
-                    <div class="space-y-2 text-purple-100">
-                        <p>Senin - Jumat: 07:00 - 15:00</p>
-                        <p>Sabtu - Minggu: Libur</p>
-                    </div>
-                </div>
+        <div class="card bg-white p-6 shadow-lg">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">Hasil Seleksi Pengurus OSIS Baru</h3>
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                <span>10 Maret 2025</span>
+              </div>
             </div>
-            <div class="border-t border-purple-400 mt-8 pt-8 text-center">
-                <p class="text-purple-100">© 2025 OSIS SMA Negeri 6 Medan. Semua hak dilindungi.</p>
+            <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full announcement-badge">Informasi</span>
+          </div>
+          <p class="text-gray-600 mb-4">Pengumuman hasil seleksi calon pengurus OSIS periode 2025/2026 dapat dilihat di papan pengumuman sekolah dan website OSIS.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center text-sm text-gray-500">
+              <i class="fas fa-user mr-2"></i>
+              <span>NAUFAL RAIHAN (Ketua OSIS)</span>
             </div>
+            <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lihat Hasil →</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
 
-    <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <!-- Galeri Tab -->
+    <div id="tab-galeri" class="tab-content hidden">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Galeri Kegiatan</h2>
+        <p class="text-gray-600">Dokumentasi kegiatan OSIS SMA Negeri 6 Medan</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-blue-100 to-blue-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/conference.png" alt="Pelantikan" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Pelantikan OSIS 2025/2026</h3>
+          <p class="text-gray-600 text-sm mb-3">Upacara pelantikan pengurus OSIS periode baru di Aula Sekolah.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>5 Agustus 2025</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-green-100 to-green-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/leaf.png" alt="Penghijauan" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Penghijauan Sekolah</h3>
+          <p class="text-gray-600 text-sm mb-3">Kegiatan penanaman pohon dalam program SMA 6 Go Green.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>15 September 2025</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/book.png" alt="Bimbingan" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Bimbingan Belajar</h3>
+          <p class="text-gray-600 text-sm mb-3">Sesi belajar bersama persiapan UTBK dan olimpiade.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>20 Oktober 2025</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-orange-100 to-orange-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/basketball.png" alt="Basket" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Turnamen Basket</h3>
+          <p class="text-gray-600 text-sm mb-3">Kompetisi basket antar kelas dalam Youth Olympic Fest.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>10 April 2025</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-red-100 to-red-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/charity.png" alt="Bakti Sosial" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Bakti Sosial</h3>
+          <p class="text-gray-600 text-sm mb-3">Kunjungan dan bantuan ke panti asuhan setempat.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>25 Juni 2025</span>
+          </div>
+        </div>
+
+        <div class="card bg-white p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-indigo-100 to-indigo-200 h-48 rounded-lg flex items-center justify-center mb-4">
+            <img src="https://img.icons8.com/color/96/000000/graduation-cap.png" alt="Seminar" class="w-16 h-16">
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Seminar Motivasi</h3>
+          <p class="text-gray-600 text-sm mb-3">Seminar motivasi belajar untuk siswa kelas XII.</p>
+          <div class="flex items-center text-sm text-gray-500">
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span>30 November 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kontak Tab -->
+    <div id="tab-kontak" class="tab-content hidden">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">Hubungi Kami</h2>
+        <p class="text-gray-600">Silakan hubungi pengurus OSIS untuk informasi lebih lanjut</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="card bg-white p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Informasi Kontak</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/school-building.png" alt="Sekolah" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800">Alamat Sekolah</h4>
+                <p class="text-gray-600">Jl. Ansari No. 34, Kel. Sei Rengas 1<br>Kec. Medan Kota, Kota Medan<br>Sumatera Utara 20211</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800">Email OSIS</h4>
+                <p class="text-gray-600 mb-2">osis@sman6medan.sch.id</p>
+                <button class="copy-email bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded text-sm transition">
+                  <i class="fas fa-copy mr-1"></i>Salin Email
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Telepon" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800">Telepon Sekolah</h4>
+                <p class="text-gray-600">(061) 452 1234</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                <img src="https://img.icons8.com/color/48/000000/clock.png" alt="Jam" class="w-8 h-8">
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800">Jam Operasional</h4>
+                <p class="text-gray-600">Senin - Jumat: 07:30 - 16:00 WIB<br>Sabtu: 07:30 - 12:30 WIB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-white p-6 shadow-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
+          
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subjek</label>
+              <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
+              <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition">
+              <i class="fas fa-paper-plane mr-2"></i>Kirim Pesan
+            </button>
+          </form>
+
+          <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+            <div class="flex items-center">
+              <i class="fas fa-check-circle mr-2"></i>
+              <span>Pesan berhasil dikirim! Kami akan membalas secepatnya.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="card bg-white p-6 shadow-lg mt-8">
+        <h3 class="text-xl font-bold text-gray-800 mb-6">FAQ (Pertanyaan Umum)</h3>
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        <div class="space-y-4">
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
+              <span class="font-medium">Bagaimana cara bergabung dengan OSIS?</span>
+              <i class="fas fa-chevron-down transition-transform"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-gray-600 mt-2">Pendaftaran calon pengurus OSIS dibuka setiap tahun pada bulan Mei. Siswa dapat mendaftar melalui wali kelas atau langsung ke ruang OSIS dengan melengkapi formulir pendaftaran.</p>
+            </div>
+          </div>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
+              <span class="font-medium">Apa saja persyaratan menjadi pengurus OSIS?</span>
+              <i class="fas fa-chevron-down transition-transform"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-gray-600 mt-2">Siswa kelas X dan XI dengan IPK minimal 3.0, memiliki sikap dan perilaku yang baik, serta memiliki motivasi untuk berkontribusi bagi sekolah.</p>
+            </div>
+          </div>
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+          <div class="border-b border-gray-200 pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
+              <span class="font-medium">Kapan rapat OSIS dilaksanakan?</span>
+              <i class="fas fa-chevron-down transition-transform"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-gray-600 mt-2">Rapat rutin dilaksanakan setiap hari Sabtu pukul 13:00 di ruang OSIS. Rapat khusus dapat dilaksanakan sesuai kebutuhan dengan pemberitahuan sebelumnya.</p>
+            </div>
+          </div>
+
+          <div class="pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
+              <span class="font-medium">Bagaimana cara mengajukan proposal kegiatan?</span>
+              <i class="fas fa-chevron-down transition-transform"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-gray-600 mt-2">Proposal kegiatan dapat diajukan melalui koordinator bidang terkait atau langsung kepada sekretaris OSIS dengan melampirkan rincian kegiatan, anggaran, dan timeline pelaksanaan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 px-4 mt-12">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">OSIS SMA Negeri 6 Medan</h3>
+          <p class="text-gray-400">Organisasi Siswa Intra Sekolah yang berkomitmen untuk memajukan sekolah melalui berbagai kegiatan positif dan inovatif.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" class="w-6 h-6">
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" class="w-6 h-6">
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter" class="w-6 h-6">
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <img src="https://img.icons8.com/color/48/000000/youtube.png" alt="YouTube" class="w-6 h-6">
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Link Cepat</h3>
+          <ul class="space-y-2">
+            <li><a href="#beranda" class="text-gray-400 hover:text-white transition">Beranda</a></li>
+            <li><a href="#struktur" class="text-gray-400 hover:text-white transition">Struktur Organisasi</a></li>
+            <li><a href="#progja" class="text-gray-400 hover:text-white transition">Program Kerja</a></li>
+            <li><a href="#pengumuman" class="text-gray-400 hover:text-white transition">Pengumuman</a></li>
+            <li><a href="#galeri" class="text-gray-400 hover:text-white transition">Galeri</a></li>
+            <li><a href="#kontak" class="text-gray-400 hover:text-white transition">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-4">Kontak Darurat</h3>
+          <div class="space-y-2">
+            <p class="text-gray-400 flex items-center">
+              <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Phone" class="w-4 h-4 mr-2">
+              <span>(061) 452 1234</span>
+            </p>
+            <p class="text-gray-400 flex items-center">
+              <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-4 h-4 mr-2">
+              <span>osis@sman6medan.sch.id</span>
+            </p>
+            <p class="text-gray-400 flex items-center">
+              <img src="https://img.icons8.com/color/48/000000/marker.png" alt="Location" class="w-4 h-4 mr-2">
+              <span>Jl. Ansari No. 34, Medan</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">&copy; 2025 OSIS SMA Negeri 6 Medan. All rights reserved.</p>
+        <p class="text-gray-500 text-sm mt-2">Website dikembangkan oleh Bidang 9: Dokumentasi & Teknologi</p>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <script>
+    // Enhanced Tab Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    function showTab(tabId) {
+      // Hide all tab contents with animation
+      tabContents.forEach(content => {
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          content.classList.add('hidden');
+        }, 200);
+      });
+      
+      // Remove active class from all tab buttons
+      tabButtons.forEach(btn => {
+        btn.classList.remove('active', 'text-blue-600', 'border-blue-600');
+        btn.classList.add('text-gray-600');
+      });
+      
+      // Show selected tab content with animation
+      setTimeout(() => {
+        const selectedTab = document.getElementById(`tab-${tabId}`);
+        if (selectedTab) {
+          selectedTab.classList.remove('hidden');
+          setTimeout(() => {
+            selectedTab.style.opacity = '1';
+            selectedTab.style.transform = 'translateY(0)';
+            selectedTab.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          }, 10);
+        }
+        
+        // Add active class to clicked tab button
+        const clickedButton = document.querySelector(`[data-tab="${tabId}"]`);
+        if (clickedButton) {
+          clickedButton.classList.add('active', 'text-blue-600', 'border-blue-600');
+          clickedButton.classList.remove('text-gray-600');
+        }
+        
+        // Update URL hash
+        history.pushState(null, null, `#${tabId}`);
+      }, 200);
+    }
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.dataset.tab;
+        showTab(targetTab);
+      });
+    });
+
+    // Enhanced FAQ Toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('i');
+        
+        // Close other FAQs
+        faqQuestions.forEach(otherQuestion => {
+          if (otherQuestion !== question) {
+            const otherAnswer = otherQuestion.nextElementSibling;
+            const otherIcon = otherQuestion.querySelector('i');
+            otherAnswer.classList.remove('active');
+            otherIcon.style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Toggle active class
+        answer.classList.toggle('active');
+        
+        // Rotate icon
+        if (answer.classList.contains('active')) {
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+
+    // Contact Form Submission with Validation
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !email || !message) {
+          alert('Harap isi semua field yang wajib diisi!');
+          return;
+        }
+        
+        if (!validateEmail(email)) {
+          alert('Harap masukkan email yang valid!');
+          return;
+        }
+        
+        // Show success message
+        formSuccess.classList.remove('hidden');
+        formSuccess.style.animation = 'fadeIn 0.5s ease';
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formSuccess.style.animation = 'fadeOut 0.5s ease';
+          setTimeout(() => {
+            formSuccess.classList.add('hidden');
+          }, 500);
+        }, 5000);
+      });
+    }
+    
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Print Structure Button Functionality
+    const printStructureBtn = document.getElementById('print-structure');
+    const exportStructureBtn = document.getElementById('export-structure');
+    
+    if (printStructureBtn) {
+      printStructureBtn.addEventListener('click', () => {
+        const printContent = document.getElementById('tab-struktur').innerHTML;
+        const originalContent = document.body.innerHTML;
+        document.body.innerHTML = `
+          <div style="padding: 20px; font-family: Arial, sans-serif;">
+            <h1 style="text-align: center; color: #1e3a8a;">Struktur OSIS SMA Negeri 6 Medan</h1>
+            <p style="text-align: center; color: #666;">Periode 2025/2026 - Dicetak pada ${new Date().toLocaleDateString('id-ID')}</p>
+            <hr style="margin: 20px 0;">
+            ${printContent}
+          </div>
+        `;
+        window.print();
+        document.body.innerHTML = originalContent;
+        showTab('struktur');
+      });
+    }
+    
+    if (exportStructureBtn) {
+      exportStructureBtn.addEventListener('click', () => {
+        const structureData = {
+          periode: '2025/2026',
+          total_pengurus: 35,
+          pimpinan_inti: 7,
+          koordinator_bidang: 9,
+          anggota_bidang: 28,
+          timestamp: new Date().toISOString()
         };
+        
+        const dataStr = JSON.stringify(structureData, null, 2);
+        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+        
+        const exportFileDefaultName = `struktur-osis-sman6medan-${new Date().getFullYear()}.json`;
+        
+        const linkElement = document.createElement('a');
+        linkElement.setAttribute('href', dataUri);
+        linkElement.setAttribute('download', exportFileDefaultName);
+        linkElement.click();
+      });
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.style.opacity = '1';
+        backToTop.style.transform = 'translateY(0)';
+      } else {
+        backToTop.style.opacity = '0';
+        backToTop.style.transform = 'translateY(10px)';
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Simple Loading Solution - FIXED
+    window.addEventListener('DOMContentLoaded', () => {
+      // Simulate loading for 1.5 seconds
+      setTimeout(() => {
+        const loading = document.getElementById('loading');
+        const loadingBar = document.getElementById('loading-bar');
+        
+        loadingBar.style.width = '100%';
+        
+        setTimeout(() => {
+          loading.classList.add('hidden');
+          
+          // Show beranda tab by default
+          const hash = window.location.hash.substring(1);
+          if (hash && ['struktur', 'progja', 'pengumuman', 'kontak', 'galeri', 'beranda'].includes(hash)) {
+            showTab(hash);
+          } else {
+            showTab('beranda');
+          }
+        }, 300);
+      }, 800);
+    });
+
+    // Fallback jika loading stuck
+    setTimeout(() => {
+      const loading = document.getElementById('loading');
+      if (!loading.classList.contains('hidden')) {
+        loading.classList.add('hidden');
+        showTab('beranda');
+      }
+    }, 3000);
+
+    // Enhanced Smooth Scrolling with Tab Switching
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          // Show the corresponding tab
+          if (targetId === '#struktur') showTab('struktur');
+          else if (targetId === '#progja') showTab('progja');
+          else if (targetId === '#pengumuman') showTab('pengumuman');
+          else if (targetId === '#kontak') showTab('kontak');
+          else if (targetId === '#galeri') showTab('galeri');
+          else if (targetId === '#beranda') showTab('beranda');
+          
+          // Smooth scroll to element
+          setTimeout(() => {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
             });
-        }, observerOptions);
+          }, 100);
+        }
+      });
+    });
 
-        // Observe all elements with section-fade class
-        document.querySelectorAll('.section-fade').forEach(el => {
-            observer.observe(el);
+    // Add hover effects to cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px) scale(1.02)';
         });
-    </script>
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+    });
+
+    // Copy email functionality
+    document.querySelectorAll('.copy-email').forEach(button => {
+      button.addEventListener('click', () => {
+        const email = 'osis@sman6medan.sch.id';
+        navigator.clipboard.writeText(email).then(() => {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check mr-1"></i> Tersalin!';
+          button.classList.add('bg-green-500', 'text-white');
+          
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('bg-green-500', 'text-white');
+          }, 2000);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
