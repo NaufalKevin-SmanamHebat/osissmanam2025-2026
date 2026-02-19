@@ -2,7 +2,7 @@
 <html lang="id" class="h-full">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Website OSIS SMA Negeri 6 Medan</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -158,46 +158,309 @@
       border-radius: 9999px;
       font-weight: bold;
     }
+    
+    /* OPTIMASI MOBILE */
+    @media (max-width: 768px) {
+      /* Header */
+      header .container > div {
+        flex-direction: column !important;
+        text-align: center;
+      }
+      
+      header .flex.items-center {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      header .flex.items-center > div:last-child {
+        margin-top: 1rem;
+      }
+      
+      /* Navigation */
+      nav .container > div {
+        flex-direction: column;
+      }
+      
+      nav .flex.flex-wrap {
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      
+      nav .tab-button {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+      }
+      
+      /* Cards */
+      .card {
+        margin-bottom: 1rem;
+      }
+      
+      /* Grid */
+      .grid {
+        gap: 1rem;
+      }
+      
+      /* Stats */
+      .grid-cols-2.sm\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      /* FAQ */
+      .faq-question {
+        font-size: 0.9rem;
+      }
+      
+      /* Footer */
+      footer .grid {
+        gap: 2rem;
+      }
+      
+      footer .flex.space-x-4 {
+        justify-content: center;
+      }
+      
+      /* Back to Top */
+      #backToTop {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem;
+      }
+      
+      /* Loading */
+      #loading .text-center {
+        padding: 1rem;
+      }
+      
+      /* Welcome section */
+      .flex-col.sm\:flex-row {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      /* Structure items */
+      .structure-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem !important;
+      }
+      
+      .structure-item .mr-4 {
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Program cards */
+      .flex.items-center.mb-4 {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .flex.items-center.mb-4 .mr-4 {
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Kontak cards */
+      .flex.items-start {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+      
+      .flex.items-start .mr-4 {
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Gallery */
+      .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: 1fr;
+      }
+      
+      .card .bg-gradient-to-br {
+        height: auto;
+        min-height: 120px;
+      }
+      
+      /* FAQ section */
+      .space-y-4 > div {
+        padding-bottom: 0.75rem;
+      }
+      
+      /* Pengumuman cards */
+      .flex.justify-between.items-start {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .flex.justify-between.items-start > div:first-child {
+        width: 100%;
+      }
+      
+      /* Tombol cetak */
+      .flex.justify-center.gap-4 {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .flex.justify-center.gap-4 button {
+        width: 100%;
+      }
+      
+      /* Diagram struktur */
+      .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      
+      /* Level diagram */
+      .flex.justify-center.gap-8 {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      
+      /* Contact info */
+      .space-y-6 > div {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    /* Optimasi untuk layar sangat kecil */
+    @media (max-width: 480px) {
+      /* Header */
+      h1.text-3xl {
+        font-size: 1.5rem;
+      }
+      
+      /* Navigation */
+      nav .flex.flex-wrap {
+        gap: 0.25rem;
+      }
+      
+      nav .tab-button {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+      }
+      
+      /* Stats numbers */
+      .text-2xl.sm\:text-3xl {
+        font-size: 1.5rem;
+      }
+      
+      /* Cards */
+      .p-6 {
+        padding: 1rem;
+      }
+      
+      /* FAQ */
+      .faq-question {
+        font-size: 0.85rem;
+      }
+      
+      /* Footer links */
+      footer .text-gray-400 {
+        font-size: 0.9rem;
+      }
+      
+      /* Quick stats grid */
+      .grid-cols-2.sm\:grid-cols-4 {
+        gap: 0.5rem;
+      }
+      
+      .grid-cols-2.sm\:grid-cols-4 > div {
+        padding: 0.75rem;
+      }
+      
+      /* Tombol pengaduan */
+      .complaint-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+      }
+      
+      .complaint-badge i {
+        font-size: 0.7rem;
+      }
+    }
+    
+    /* Touch-friendly improvements */
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Better touch targets */
+    .tab-button, .card, .structure-item, .faq-question {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Prevent text overflow */
+    p, h1, h2, h3, h4, h5, h6 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    /* Image optimization */
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    /* Better scrolling on mobile */
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+    }
   </style>
 </head>
 <body class="h-full bg-gradient-to-br from-gray-50 to-blue-50">
   <!-- Loading Overlay -->
   <div id="loading" class="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50">
-    <div class="text-center">
+    <div class="text-center w-full max-w-xs mx-auto px-4">
       <div class="spinner mx-auto mb-4"></div>
-      <p class="text-gray-700 font-semibold animate-pulse">Memuat Website OSIS...</p>
-      <div class="w-48 h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
+      <p class="text-gray-700 font-semibold animate-pulse text-sm sm:text-base">Memuat Website OSIS...</p>
+      <div class="w-48 h-2 bg-gray-200 rounded-full mt-4 overflow-hidden mx-auto">
         <div id="loading-bar" class="h-full bg-blue-500 rounded-full" style="width: 0%"></div>
       </div>
     </div>
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg z-40 hover:bg-blue-700 transition opacity-0 transform translate-y-10 transition-all duration-300 no-print">
+  <button id="backToTop" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg z-40 hover:bg-blue-700 transition opacity-0 transform translate-y-10 transition-all duration-300 no-print">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <!-- Header -->
-  <header class="gradient-bg text-white py-8 px-4 sm:px-6 shadow-lg relative overflow-hidden">
+  <header class="gradient-bg text-white py-6 sm:py-8 px-4 sm:px-6 shadow-lg relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3 animate-pulse" style="animation-delay: 0.5s;"></div>
+      <div class="absolute top-0 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+      <div class="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3 animate-pulse" style="animation-delay: 0.5s;"></div>
     </div>
 
     <div class="container mx-auto relative z-10">
       <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="flex items-center space-x-4 mb-6 md:mb-0">
-          <div class="bg-white p-3 rounded-full shadow-lg">
-            <img src="https://image2url.com/r2/default/images/1771477120715-0d1ad6a2-4f86-435a-a8ce-f2e487243f5e.png" alt="Logo Sekolah" class="w-16 h-18">
+        <div class="flex flex-col sm:flex-row items-center space-x-0 sm:space-x-4 mb-4 md:mb-0">
+          <div class="bg-white p-2 sm:p-3 rounded-full shadow-lg mb-3 sm:mb-0">
+            <img src="https://image2url.com/r2/default/images/1771477120715-0d1ad6a2-4f86-435a-a8ce-f2e487243f5e.png" alt="Logo Sekolah" class="w-14 h-16 sm:w-16 sm:h-18">
           </div>
-          <div>
-            <h1 class="text-3xl md:text-4xl font-bold">OSIS SMA Negeri 6 Medan</h1>
-            <p class="text-blue-100 mt-1">Organisasi Siswa Intra Sekolah Periode 2025/2026</p>
+          <div class="text-center sm:text-left">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">OSIS SMA Negeri 6 Medan</h1>
+            <p class="text-blue-100 mt-1 text-sm sm:text-base">Organisasi Siswa Intra Sekolah Periode 2025/2026</p>
           </div>
         </div>
-        <div class="text-center md:text-right">
-          <p class="text-lg">"We Are Dare to Dream!"</p>
-          <p class="text-blue-100 mt-2">Jl. Ansari No. 34, Medan</p>
+        <div class="text-center md:text-right mt-2 md:mt-0">
+          <p class="text-base sm:text-lg">"We Are Dare to Dream!"</p>
+          <p class="text-blue-100 mt-1 text-xs sm:text-sm">Jl. Ansari No. 34, Medan</p>
         </div>
       </div>
     </div>
@@ -205,22 +468,23 @@
 
   <!-- Navigation -->
   <nav class="bg-white shadow-md sticky top-0 z-30 no-print">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center py-4">
-        <div class="mb-4 md:mb-0">
-          <h2 class="text-xl font-bold text-gray-800">Navigasi Utama</h2>
+    <div class="container mx-auto px-2 sm:px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center py-3 sm:py-4">
+        <div class="mb-2 md:mb-0">
+          <h2 class="text-base sm:text-xl font-bold text-gray-800">Navigasi Utama</h2>
         </div>
-        <div class="flex flex-wrap gap-4">
-          <button class="tab-button active text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="beranda">Beranda</button>
-          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="struktur">Struktur</button>
-          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="progja">Program</button>
-          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="pengumuman">Pengumuman</button>
-          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="galeri">Galeri</button>
-          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition" data-tab="kontak">Kontak</button>
+        <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+          <button class="tab-button active text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="beranda">Beranda</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="struktur">Struktur</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="progja">Program</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="pengumuman">Pengumuman</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="galeri">Galeri</button>
+          <button class="tab-button text-gray-600 hover:text-blue-600 font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition text-xs sm:text-sm" data-tab="kontak">Kontak</button>
           <!-- Tombol Pengaduan Baru -->
-          <a href="https://forms.google.com" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-lg transition flex items-center gap-2 complaint-badge">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span>Pengaduan</span>
+          <a href="https://forms.google.com" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg transition flex items-center gap-1 sm:gap-2 complaint-badge text-xs sm:text-sm">
+            <i class="fas fa-exclamation-triangle text-xs sm:text-sm"></i>
+            <span class="hidden xs:inline">Pengaduan</span>
+            <span class="inline xs:hidden">Aduan</span>
           </a>
         </div>
       </div>
@@ -228,29 +492,29 @@
   </nav>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-4 py-8">
+  <main class="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
     <!-- Beranda Tab -->
     <div id="tab-beranda" class="tab-content">
       <!-- Welcome Section -->
-      <section class="bg-white rounded-xl shadow-lg p-6 mb-8 card">
-        <div class="flex flex-col sm:flex-row items-start gap-4">
+      <section class="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-8 card">
+        <div class="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
           <div class="text-3xl sm:text-4xl text-blue-600 mx-auto sm:mx-0">
             <i class="fas fa-graduation-cap"></i>
           </div>
           <div class="text-center sm:text-left">
-            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Selamat Datang di Website OSIS SMA Negeri 6 Medan</h2>
-            <p class="text-gray-600 text-base sm:text-lg mb-4">
+            <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">Selamat Datang di Website OSIS SMA Negeri 6 Medan</h2>
+            <p class="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
               Organisasi Siswa Intra Sekolah (OSIS) SMA Negeri 6 Medan merupakan wadah bagi siswa untuk mengembangkan potensi diri, berorganisasi, dan berkontribusi dalam memajukan sekolah. Periode 2025/2026 dengan tema "GEMA RAKYAT".
             </p>
-            <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+            <div class="flex flex-wrap justify-center sm:justify-start gap-1 sm:gap-2">
               <span class="bg-blue-100 text-blue-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
-                <i class="fas fa-star mr-1"></i> Sekolah Berdampak
+                <i class="fas fa-star mr-1"></i> <span class="hidden xs:inline">Sekolah Berdampak</span><span class="inline xs:hidden">Berdampak</span>
               </span>
               <span class="bg-green-100 text-green-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
-                <i class="fas fa-trophy mr-1"></i> OSIS Informatif
+                <i class="fas fa-trophy mr-1"></i> <span class="hidden xs:inline">OSIS Informatif</span><span class="inline xs:hidden">Informatif</span>
               </span>
               <span class="bg-purple-100 text-purple-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:scale-105 transition">
-                <i class="fas fa-heart mr-1"></i> Peduli Lingkungan
+                <i class="fas fa-heart mr-1"></i> <span class="hidden xs:inline">Peduli Lingkungan</span><span class="inline xs:hidden">Peduli</span>
               </span>
             </div>
           </div>
@@ -258,112 +522,112 @@
       </section>
 
       <!-- Visi Misi Section -->
-      <section class="mb-8">
-        <div class="text-center mb-8">
-          <h2 class="text-3xl font-bold text-gray-800 mb-2">Visi & Misi OSIS</h2>
-          <p class="text-gray-600">Landasan pergerakan dan tujuan organisasi</p>
+      <section class="mb-6 sm:mb-8">
+        <div class="text-center mb-4 sm:mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Visi & Misi OSIS</h2>
+          <p class="text-gray-600 text-sm sm:text-base">Landasan pergerakan dan tujuan organisasi</p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           <!-- Visi -->
-          <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-lg">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-eye text-white text-xl"></i>
+          <div class="card bg-gradient-to-br from-blue-50 to-indigo-50 p-4 sm:p-6 shadow-lg">
+            <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <i class="fas fa-eye text-white text-base sm:text-xl"></i>
               </div>
-              <h3 class="text-xl font-bold text-gray-800">Visi OSIS</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-800">Visi OSIS</h3>
             </div>
-            <p class="text-lg font-semibold text-blue-700 mb-4 italic">
+            <p class="text-sm sm:text-base font-semibold text-blue-700 mb-3 sm:mb-4 italic text-center sm:text-left">
               "Mewujudkan organisasi yang peduli lingkungan, berorientasi pada kepentingan siswa, menjunjung tinggi nilai-nilai kemanusiaan dan transparansi, serta menghadirkan program-program populis yang berdampak nyata bagi anggota dan masyarakat, dengan tetap menjaga integritas serta nilai luhur organisasi."
             </p>
-            <div class="space-y-2">
+            <div class="space-y-1 sm:space-y-2">
               <div class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <p class="text-gray-600">Menghadirkan Organisasi aktif dan responsif untuk perubahan nyata.</p>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 sm:mr-3 text-sm sm:text-base"></i>
+                <p class="text-gray-600 text-xs sm:text-sm">Menghadirkan Organisasi aktif dan responsif untuk perubahan nyata.</p>
               </div>
               <div class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <p class="text-gray-600">Menciptakan lingkungan sekolah yang berkelanjutan</p>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 sm:mr-3 text-sm sm:text-base"></i>
+                <p class="text-gray-600 text-xs sm:text-sm">Menciptakan lingkungan sekolah yang berkelanjutan</p>
               </div>
               <div class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <p class="text-gray-600">Membangun karakter siswa yang peduli lingkungan</p>
-                </div>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 sm:mr-3 text-sm sm:text-base"></i>
+                <p class="text-gray-600 text-xs sm:text-sm">Membangun karakter siswa yang peduli lingkungan</p>
+              </div>
               <div class="flex items-start">
-                <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                <p class="text-gray-600">Mewadahi potensi siswa sesuai kebutuhan</p>
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2 sm:mr-3 text-sm sm:text-base"></i>
+                <p class="text-gray-600 text-xs sm:text-sm">Mewadahi potensi siswa sesuai kebutuhan</p>
               </div>
             </div>
           </div>
           
           <!-- Misi -->
-          <div class="card bg-gradient-to-br from-purple-50 to-pink-50 p-6 shadow-lg">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mr-4">
-                <i class="fas fa-bullseye text-white text-xl"></i>
+          <div class="card bg-gradient-to-br from-purple-50 to-pink-50 p-4 sm:p-6 shadow-lg">
+            <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <i class="fas fa-bullseye text-white text-base sm:text-xl"></i>
               </div>
-              <h3 class="text-xl font-bold text-gray-800">Misi OSIS</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-800">Misi OSIS</h3>
             </div>
-            <div class="space-y-4">
+            <div class="space-y-2 sm:space-y-3">
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">1</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">1</span>
                 </div>
-                <p class="text-gray-600">Gerakan – Organisasi aktif dan responsif untuk perubahan nyata.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Gerakan – Organisasi aktif dan responsif untuk perubahan nyata.</p>
               </div> 
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">2</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">2</span>
                 </div>
-                <p class="text-gray-600">Ekologis – Program berkelanjutan untuk jaga lingkungan.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Ekologis – Program berkelanjutan untuk jaga lingkungan.</p>
               </div>
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">3</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">3</span>
                 </div>
-                <p class="text-gray-600">Mandiri – Anggota berdaya, percaya diri, pelopor perubahan.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Mandiri – Anggota berdaya, percaya diri, pelopor perubahan.</p>
               </div>
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">4</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">4</span>
                 </div>
-                <p class="text-gray-600">Aspiratif – Wadah terbuka, setiap aspirasi ditindaklanjuti.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Aspiratif – Wadah terbuka, setiap aspirasi ditindaklanjuti.</p>
               </div>
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">5</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">5</span>
                 </div>
-                <p class="text-gray-600">Reformis – Benahi sistem organisasi lebih profesional & transparan.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Reformis – Benahi sistem organisasi lebih profesional & transparan.</p>
               </div>
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">6</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">6</span>
                 </div>
-                <p class="text-gray-600">Akomodatif – Ruang setara untuk partisipasi semua anggota.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Akomodatif – Ruang setara untuk partisipasi semua anggota.</p>
               </div> 
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">7</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">7</span>
                 </div>
-                <p class="text-gray-600">Kolaboratif – Kerja sama dengan berbagai pihak untuk program inklusif.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Kolaboratif – Kerja sama dengan berbagai pihak untuk program inklusif.</p>
               </div> 
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">8</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">8</span>
                 </div>
-                <p class="text-gray-600">Yakin Hijau – Budaya peduli lingkungan sebagai identitas modern.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Yakin Hijau – Budaya peduli lingkungan sebagai identitas modern.</p>
               </div> 
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">9</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">9</span>
                 </div>
-                <p class="text-gray-600">Adil – Tegakkan keadilan, tolak diskriminasi.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Adil – Tegakkan keadilan, tolak diskriminasi.</p>
               </div> 
               <div class="flex items-start">
-                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                  <span class="text-purple-600 font-bold">10</span>
+                <div class="w-6 h-6 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <span class="text-purple-600 font-bold text-xs sm:text-sm">10</span>
                 </div>
-                <p class="text-gray-600">Terbuka – Transparansi dalam komunikasi, anggaran, & keputusan.</p>
+                <p class="text-gray-600 text-xs sm:text-sm">Terbuka – Transparansi dalam komunikasi, anggaran, & keputusan.</p>
               </div> 
             </div>
           </div>
@@ -371,28 +635,28 @@
       </section>
 
       <!-- Quick Stats -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
-          <div class="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">34</div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-8">
+        <div class="bg-white rounded-xl p-2 sm:p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 mb-1">34</div>
           <div class="text-xs sm:text-sm text-gray-600">Total Pengurus</div>
         </div>
-        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
-          <div class="text-2xl sm:text-3xl font-bold text-green-600 mb-1">9</div>
+        <div class="bg-white rounded-xl p-2 sm:p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 mb-1">9</div>
           <div class="text-xs sm:text-sm text-gray-600">Bidang Utama</div>
         </div>
-        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
-          <div class="text-2xl sm:text-3xl font-bold text-purple-600 mb-1">77</div>
+        <div class="bg-white rounded-xl p-2 sm:p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-xl sm:text-2xl md:text-3xl font-bold text-purple-600 mb-1">77</div>
           <div class="text-xs sm:text-sm text-gray-600">Program Kerja</div>
         </div>
-        <div class="bg-white rounded-xl p-4 text-center shadow hover:shadow-md transition">
-          <div class="text-2xl sm:text-3xl font-bold text-orange-600 mb-1">17</div>
+        <div class="bg-white rounded-xl p-2 sm:p-4 text-center shadow hover:shadow-md transition">
+          <div class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-600 mb-1">17</div>
           <div class="text-xs sm:text-sm text-gray-600">Ekstrakurikuler</div>
         </div>
       </div>
 
       <!-- Tombol Cetak di Beranda -->
-      <div class="flex justify-center gap-4 mb-8">
-        <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg shadow transition flex items-center">
+      <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mb-4 sm:mb-8">
+        <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow transition flex items-center justify-center text-sm sm:text-base">
           <i class="fas fa-print mr-2"></i> Cetak Halaman
         </button>
       </div>
@@ -400,188 +664,188 @@
 
     <!-- Struktur Tab -->
     <div id="tab-struktur" class="tab-content hidden">
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Struktur Organisasi OSIS</h2>
-        <p class="text-gray-600">Periode 2025/2026 - SMA Negeri 6 Medan</p>
-        <div class="flex gap-4 mt-4">
-          <button id="print-structure" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+      <div class="mb-4 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Struktur Organisasi OSIS</h2>
+        <p class="text-gray-600 text-sm sm:text-base">Periode 2025/2026 - SMA Negeri 6 Medan</p>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-3 sm:mt-4">
+          <button id="print-structure" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition flex items-center justify-center text-sm">
             <i class="fas fa-print mr-2"></i>Cetak Struktur
           </button>
-          <button id="export-structure" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+          <button id="export-structure" class="bg-green-500 hover:bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg transition flex items-center justify-center text-sm">
             <i class="fas fa-download mr-2"></i>Export Data
           </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-8">
         <!-- Pimpinan Inti -->
-        <div class="card bg-white p-6 shadow-lg">
-          <h3 class="text-xl font-bold text-blue-600 mb-4">Pimpinan Inti</h3>
-          <div class="space-y-4">
-            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-8 h-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <h3 class="text-lg sm:text-xl font-bold text-blue-600 mb-3 sm:mb-4 text-center sm:text-left">Pimpinan Inti</h3>
+          <div class="space-y-3 sm:space-y-4">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">NAUFAL RAIHAN</h4>
-                <p class="text-sm text-gray-600">Ketua OSIS</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">NAUFAL RAIHAN</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Ketua OSIS</p>
               </div>
             </div>
-            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">KEVIN ANDREAN TANJUNG</h4>
-                <p class="text-sm text-gray-600">Wakil Ketua OSIS</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">KEVIN ANDREAN TANJUNG</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Wakil Ketua OSIS</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Sekretariat & Bendahara -->
-        <div class="card bg-white p-6 shadow-lg">
-          <h3 class="text-xl font-bold text-blue-600 mb-4">Sekretariat & Bendahara</h3>
-          <div class="space-y-4">
-            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-8 h-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <h3 class="text-lg sm:text-xl font-bold text-blue-600 mb-3 sm:mb-4 text-center sm:text-left">Sekretariat & Bendahara</h3>
+          <div class="space-y-3 sm:space-y-4">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">NIA AMELIA PUTRI</h4>
-                <p class="text-sm text-gray-600">Sekretaris Umum</p>
-              </div>
-            </div>
-            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/signature.png" alt="Wakil Sekretaris" class="w-8 h-8">
-              </div>
-              <div>
-                <h4 class="font-bold">AISYA FIDYA ROKHMA</h4>
-                <p class="text-sm text-gray-600">Wakil Sekretaris</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">NIA AMELIA PUTRI</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Sekretaris Umum</p>
               </div>
             </div>
-            <div class="flex items-center p-3 bg-yellow-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/signature.png" alt="Wakil Sekretaris" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">FAUZIAH DWI AZURA</h4>
-                <p class="text-sm text-gray-600">Bendahara Umum</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">AISYA FIDYA ROKHMA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Wakil Sekretaris</p>
               </div>
             </div>
-            <div class="flex items-center p-3 bg-yellow-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/calculator.png" alt="Wakil Bendahara" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-yellow-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">HANINDITA RIZQIAH FITRI</h4>
-                <p class="text-sm text-gray-600">Wakil Bendahara</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">FAUZIAH DWI AZURA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bendahara Umum</p>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-yellow-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/calculator.png" alt="Wakil Bendahara" class="w-6 h-6 sm:w-8 sm:h-8">
+              </div>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">HANINDITA RIZQIAH FITRI</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Wakil Bendahara</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Koordinator Bidang -->
-        <div class="card bg-white p-6 shadow-lg">
-          <h3 class="text-xl font-bold text-blue-600 mb-4">Koordinator Bidang</h3>
-          <div class="space-y-4">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <h3 class="text-lg sm:text-xl font-bold text-blue-600 mb-3 sm:mb-4 text-center sm:text-left">Koordinator Bidang</h3>
+          <div class="space-y-3 sm:space-y-4">
             <!-- Bidang 1: Keagamaan -->
-            <div class="flex items-center p-3 bg-purple-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-purple-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">MUHAMMAD HAIKAL</h4>
-                <p class="text-sm text-gray-600">Bidang Keagamaan</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">MUHAMMAD HAIKAL</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Keagamaan</p>
               </div>
             </div>
             
             <!-- Bidang 2: Budi Pekerti -->
-            <div class="flex items-center p-3 bg-blue-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-blue-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">AULIA DHEA ZHAFIRA</h4>
-                <p class="text-sm text-gray-600">Bidang Budi Pekerti</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">AULIA DHEA ZHAFIRA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Budi Pekerti</p>
               </div>
             </div>
             
             <!-- Bidang 3: Bela Negara -->
-            <div class="flex items-center p-3 bg-red-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-red-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">SALSABILA PUTRI</h4>
-                <p class="text-sm text-gray-600">Bidang Bela Negara</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">SALSABILA PUTRI</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Bela Negara</p>
               </div>
             </div>
             
             <!-- Bidang 4: Prestasi -->
-            <div class="flex items-center p-3 bg-green-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-green-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">NUR QISTINA</h4>
-                <p class="text-sm text-gray-600">Bidang Prestasi</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">NUR QISTINA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Prestasi</p>
               </div>
             </div>
             
             <!-- Bidang 5: HAM & Lingkungan -->
-            <div class="flex items-center p-3 bg-teal-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-teal-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-teal-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">RIDHO PRATAMA</h4>
-                <p class="text-sm text-gray-600">Bidang Lingkungan</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">RIDHO PRATAMA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Lingkungan</p>
               </div>
             </div>
             
             <!-- Bidang 6: Wirausaha -->
-            <div class="flex items-center p-3 bg-orange-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-orange-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">NARA UNZILA</h4>
-                <p class="text-sm text-gray-600">Bidang Wirausaha</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">NARA UNZILA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Wirausaha</p>
               </div>
             </div>
             
             <!-- Bidang 7: Kesehatan Jasmani -->
-            <div class="flex items-center p-3 bg-pink-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-pink-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-pink-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">NAZWA ALMIRA</h4>
-                <p class="text-sm text-gray-600">Bidang Kesehatan</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">NAZWA ALMIRA</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Kesehatan</p>
               </div>
             </div>
             
             <!-- Bidang 8: Sastra & Budaya -->
-            <div class="flex items-center p-3 bg-indigo-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/paint-palette.png" alt="Seni Budaya" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-indigo-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/paint-palette.png" alt="Seni Budaya" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">SYAHRUL RAMADHAN</h4>
-                <p class="text-sm text-gray-600">Bidang Seni & Budaya</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">SYAHRUL RAMADHAN</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Seni & Budaya</p>
               </div>
             </div>
             
             <!-- Bidang 9: Dokumentasi & Teknologi -->
-            <div class="flex items-center p-3 bg-cyan-50 rounded-lg structure-item">
-              <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/camera.png" alt="Dokumentasi" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center p-2 sm:p-3 bg-cyan-50 rounded-lg structure-item">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/camera.png" alt="Dokumentasi" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold">RENATA SIANTURI</h4>
-                <p class="text-sm text-gray-600">Bidang Dokumentasi & IT</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-sm sm:text-base">RENATA SIANTURI</h4>
+                <p class="text-xs sm:text-sm text-gray-600">Bidang Dokumentasi & IT</p>
               </div>
             </div>
           </div>
@@ -589,181 +853,181 @@
       </div>
 
       <!-- Struktur Diagram -->
-      <div class="card bg-white p-6 shadow-lg mb-8">
-        <h3 class="text-xl font-bold text-gray-800 mb-6">Diagram Struktur OSIS</h3>
+      <div class="card bg-white p-4 sm:p-6 shadow-lg mb-4 sm:mb-8">
+        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 text-center">Diagram Struktur OSIS</h3>
         <div class="relative">
           <!-- Level 1: Pembina -->
-          <div class="flex justify-center mb-8">
+          <div class="flex justify-center mb-4 sm:mb-8">
             <div class="text-center">
-              <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Pembina" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Pembina" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-red-100 rounded-lg p-3">
-                <h4 class="font-bold">Dra., Hj. Iba Sabirin</h4>
-                <p class="text-sm text-gray-600">Pembina OSIS</p>
+              <div class="bg-red-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">Dra., Hj. Iba Sabirin</h4>
+                <p class="text-xs text-gray-600">Pembina OSIS</p>
               </div>
             </div>
           </div>
 
           <!-- Level 2: Ketua & Wakil -->
-          <div class="flex justify-center gap-8 mb-8">
+          <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-8 mb-4 sm:mb-8">
             <div class="text-center">
-              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/crown.png" alt="Ketua" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-blue-100 rounded-lg p-3">
-                <h4 class="font-bold">NAUFAL RAIHAN</h4>
-                <p class="text-sm text-gray-600">Ketua OSIS</p>
+              <div class="bg-blue-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">NAUFAL RAIHAN</h4>
+                <p class="text-xs text-gray-600">Ketua OSIS</p>
               </div>
             </div>
             <div class="text-center">
-              <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/conference.png" alt="Wakil" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-blue-100 rounded-lg p-3">
-                <h4 class="font-bold">KEVIN ANDREAN TANJUNG</h4>
-                <p class="text-sm text-gray-600">Wakil Ketua OSIS</p>
+              <div class="bg-blue-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">KEVIN ANDREAN TANJUNG</h4>
+                <p class="text-xs text-gray-600">Wakil Ketua OSIS</p>
               </div>
             </div>
           </div>
 
           <!-- Level 3: Sekretariat & Bendahara -->
-          <div class="flex justify-center gap-8 mb-8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-8">
             <div class="text-center">
-              <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/documents.png" alt="Sekretaris" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-green-100 rounded-lg p-3">
-                <h4 class="font-bold">NIA AMELIA PUTRI</h4>
-                <p class="text-sm text-gray-600">Sekretaris Umum</p>
+              <div class="bg-green-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">NIA AMELIA PUTRI</h4>
+                <p class="text-xs text-gray-600">Sekretaris Umum</p>
               </div>
             </div>
             <div class="text-center">
-              <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/money-bag.png" alt="Bendahara" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-yellow-100 rounded-lg p-3">
-                <h4 class="font-bold">FAUZIAH DWI AZURA</h4>
-                <p class="text-sm text-gray-600">Bendahara Umum</p>
-              </div>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/signature.png" alt="Bendahara" class="w-10 h-10">
-              </div>
-              <div class="bg-yellow-100 rounded-lg p-3">
-                <h4 class="font-bold">AISYA FIDYA ROKHMA</h4>
-                <p class="text-sm text-gray-600">Wakil Sekretaris</p>
+              <div class="bg-yellow-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">FAUZIAH DWI AZURA</h4>
+                <p class="text-xs text-gray-600">Bendahara Umum</p>
               </div>
             </div>
             <div class="text-center">
-              <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/calculator.png" alt="Bendahara" class="w-10 h-10">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/signature.png" alt="Bendahara" class="w-8 h-8 sm:w-10 sm:h-10">
               </div>
-              <div class="bg-yellow-100 rounded-lg p-3">
-                <h4 class="font-bold">HANINDITA RIZQIAH FITRI</h4>
-                <p class="text-sm text-gray-600">Wakil Bendahara</p>
+              <div class="bg-yellow-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">AISYA FIDYA ROKHMA</h4>
+                <p class="text-xs text-gray-600">Wakil Sekretaris</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/calculator.png" alt="Bendahara" class="w-8 h-8 sm:w-10 sm:h-10">
+              </div>
+              <div class="bg-yellow-100 rounded-lg p-1 sm:p-3">
+                <h4 class="font-bold text-xs sm:text-sm">HANINDITA RIZQIAH FITRI</h4>
+                <p class="text-xs text-gray-600">Wakil Bendahara</p>
               </div>
             </div>
           </div>
 
           <!-- Level 4: Koordinator Bidang -->
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
             <!-- Bidang 1 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/mosque.png" alt="Keagamaan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-purple-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">MUHAMMAD HAIKAL</h4>
+              <div class="bg-purple-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">MUHAMMAD HAIKAL</h4>
                 <p class="text-xs text-gray-600">Keagamaan</p>
               </div>
             </div>
             
             <!-- Bidang 2 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/handshake.png" alt="Budi Pekerti" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-blue-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">AULIA DHEA ZHAFIRA</h4>
+              <div class="bg-blue-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">AULIA DHEA ZHAFIRA</h4>
                 <p class="text-xs text-gray-600">Budi Pekerti</p>
               </div>
             </div>
             
             <!-- Bidang 3 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/shield.png" alt="Bela Negara" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-red-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">SALSABILA PUTRI</h4>
+              <div class="bg-red-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">SALSABILA PUTRI</h4>
                 <p class="text-xs text-gray-600">Bela Negara</p>
               </div>
             </div>
             
             <!-- Bidang 4 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Prestasi" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-green-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">NUR QISTINA</h4>
+              <div class="bg-green-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">NUR QISTINA</h4>
                 <p class="text-xs text-gray-600">Prestasi</p>
               </div>
             </div>
             
             <!-- Bidang 5 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-teal-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">RIDHO PRATAMA</h4>
+              <div class="bg-teal-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">RIDHO PRATAMA</h4>
                 <p class="text-xs text-gray-600">HAM & Lingkungan</p>
               </div>
             </div>
             
             <!-- Bidang 6 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/business.png" alt="Wirausaha" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-orange-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">NARA UNZILA</h4>
+              <div class="bg-orange-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">NARA UNZILA</h4>
                 <p class="text-xs text-gray-600">Wirausaha</p>
               </div>
             </div>
             
             <!-- Bidang 7 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/heart-health.png" alt="Kesehatan" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-pink-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">NAZWA ALMIRA</h4>
+              <div class="bg-pink-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">NAZWA ALMIRA</h4>
                 <p class="text-xs text-gray-600">Kesehatan</p>
               </div>
             </div>
             
             <!-- Bidang 8 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/paint-palette.png" alt="Seni" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/paint-palette.png" alt="Seni" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-indigo-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">SYAHRUL RAMADHAN</h4>
+              <div class="bg-indigo-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">SYAHRUL RAMADHAN</h4>
                 <p class="text-xs text-gray-600">Seni & Budaya</p>
               </div>
             </div>
 
              <!-- Bidang 9 -->
             <div class="text-center">
-              <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                <img src="https://img.icons8.com/color/48/000000/camera.png" alt="DOKUMENTASI" class="w-8 h-8">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-2">
+                <img src="https://img.icons8.com/color/48/000000/camera.png" alt="DOKUMENTASI" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div class="bg-indigo-100 rounded-lg p-2">
-                <h4 class="font-bold text-sm">RENATA SIANTURI</h4>
+              <div class="bg-indigo-100 rounded-lg p-1 sm:p-2">
+                <h4 class="font-bold text-xs sm:text-sm">RENATA SIANTURI</h4>
                 <p class="text-xs text-gray-600">Dokumentasi & IT</p>
               </div>
             </div>
@@ -774,124 +1038,124 @@
 
     <!-- Program Kerja Tab -->
     <div id="tab-progja" class="tab-content hidden">
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Program Kerja OSIS</h2>
-        <p class="text-gray-600">Program Prioritas Februari 2026</p>
+      <div class="mb-4 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Program Kerja OSIS</h2>
+        <p class="text-gray-600 text-sm sm:text-base">Program Prioritas Februari 2026</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-              <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-8 h-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+              <img src="https://img.icons8.com/color/48/000000/leaf.png" alt="Lingkungan" class="w-6 h-6 sm:w-8 sm:h-8">
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800">Program Pelayanan</h3>
-              <p class="text-gray-600">"Launching Channel Whatsapp Informasi (Dalam Tahap Persiapan)"</p>
+            <div class="text-center sm:text-left">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800">Program Pelayanan</h3>
+              <p class="text-xs sm:text-sm text-gray-600">"Launching Channel Whatsapp Informasi (Dalam Tahap Persiapan)"</p>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4">
             <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium">Progress</span>
-              <span class="text-sm font-medium">65%</span>
+              <span class="text-xs sm:text-sm font-medium">Progress</span>
+              <span class="text-xs sm:text-sm font-medium">65%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
               <div class="bg-green-600 h-2 rounded-full progress-fill" style="width: 65%"></div>
             </div>
           </div>
-          <p class="text-gray-600 mb-4">Program menghadirkan channel whatsapp berisi informasi harian ataupun informasi penting lainnya sebagai upaya efisiensi komunikasi dan pencegahan miskomunikasi.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Program menghadirkan channel whatsapp berisi informasi harian ataupun informasi penting lainnya sebagai upaya efisiensi komunikasi dan pencegahan miskomunikasi.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>Rencana Launching 25 Februari 2026</span>
           </div>
-          <div class="mt-3">
+          <div class="mt-2 sm:mt-3">
             <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Koordinator: Sekbid 9 dan Inti OSIS</span>
           </div>
         </div>
 
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-              <img src="https://img.icons8.com/color/48/000000/book.png" alt="Pendidikan" class="w-8 h-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+              <img src="https://img.icons8.com/color/48/000000/book.png" alt="Pendidikan" class="w-6 h-6 sm:w-8 sm:h-8">
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800">Program Pelayanan</h3>
-              <p class="text-gray-600">"Infaq dan Sumbangan With QRIS (Dalam Tahap Persiapan)"</p>
+            <div class="text-center sm:text-left">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800">Program Pelayanan</h3>
+              <p class="text-xs sm:text-sm text-gray-600">"Infaq dan Sumbangan With QRIS (Dalam Tahap Persiapan)"</p>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4">
             <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium">Progress</span>
-              <span class="text-sm font-medium">40%</span>
+              <span class="text-xs sm:text-sm font-medium">Progress</span>
+              <span class="text-xs sm:text-sm font-medium">40%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
               <div class="bg-purple-600 h-2 rounded-full progress-fill" style="width: 40%"></div>
             </div>
           </div>
-          <p class="text-gray-600 mb-4">Program yang menyediakan kode QRIS tersendiri untuk sumbangan dan infaq rutin di hari Jum'at sebagai upaya efisiensi dan perluasan cakupan infaq serta sumbangan.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Program yang menyediakan kode QRIS tersendiri untuk sumbangan dan infaq rutin di hari Jum'at sebagai upaya efisiensi dan perluasan cakupan infaq serta sumbangan.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>Rencana Launching 27 Februari 2026</span>
           </div>
-          <div class="mt-3">
+          <div class="mt-2 sm:mt-3">
             <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Koordinator: Sekbid 1 dan Inti OSIS</span>
           </div>
         </div>
 
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-              <img src="https://img.icons8.com/color/48/000000/charity.png" alt="Bakti Sosial" class="w-8 h-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+              <img src="https://img.icons8.com/color/48/000000/charity.png" alt="Bakti Sosial" class="w-6 h-6 sm:w-8 sm:h-8">
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800">Program Sosial</h3>
-              <p class="text-gray-600">"Rapat Koordinasi WISH (We Impact, Share, and Help)"</p>
+            <div class="text-center sm:text-left">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800">Program Sosial</h3>
+              <p class="text-xs sm:text-sm text-gray-600">"Rapat Koordinasi WISH (We Impact, Share, and Help)"</p>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4">
             <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium">Progress WISH</span>
-              <span class="text-sm font-medium">30%</span>
+              <span class="text-xs sm:text-sm font-medium">Progress WISH</span>
+              <span class="text-xs sm:text-sm font-medium">30%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
               <div class="bg-red-600 h-2 rounded-full progress-fill" style="width: 30%"></div>
             </div>
           </div>
-          <p class="text-gray-600 mb-4">Perencanaan program bakti sosial bersama SMA Negeri 18 Medan untuk menolong panti asuhan yang membutuhkan.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Perencanaan program bakti sosial bersama SMA Negeri 18 Medan untuk menolong panti asuhan yang membutuhkan.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>Rencana Rapat 24 Februari 2026</span>
           </div>
-          <div class="mt-3">
+          <div class="mt-2 sm:mt-3">
             <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">Koordinator: Mark Rutte</span>
           </div>
         </div>
 
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex items-center mb-4">
-            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-              <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Olahraga" class="w-8 h-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row items-center mb-3 sm:mb-4">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+              <img src="https://img.icons8.com/color/48/000000/trophy.png" alt="Olahraga" class="w-6 h-6 sm:w-8 sm:h-8">
             </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-800">Program Pelayanan</h3>
-              <p class="text-gray-600">"Layanan Pengaduan Terintegrasi"</p>
+            <div class="text-center sm:text-left">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800">Program Pelayanan</h3>
+              <p class="text-xs sm:text-sm text-gray-600">"Layanan Pengaduan Terintegrasi"</p>
             </div>
           </div>
-          <div class="mb-4">
+          <div class="mb-3 sm:mb-4">
             <div class="flex justify-between mb-1">
-              <span class="text-sm font-medium">Progress</span>
-              <span class="text-sm font-medium">70%</span>
+              <span class="text-xs sm:text-sm font-medium">Progress</span>
+              <span class="text-xs sm:text-sm font-medium">70%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
               <div class="bg-green-600 h-2 rounded-full progress-fill" style="width: 70%"></div>
             </div>
           </div>
-          <p class="text-gray-600 mb-4">Program penyediaan pengaduan bagi murid SMA Negeri 6 Medan.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Program penyediaan pengaduan bagi murid SMA Negeri 6 Medan.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>Rencana Launching 25 Februari 2026</span>
           </div>
-          <div class="mt-3">
+          <div class="mt-2 sm:mt-3">
             <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Koordinator: Sekbid 5</span>
           </div>
         </div>
@@ -900,17 +1164,17 @@
 
     <!-- Pengumuman Tab -->
     <div id="tab-pengumuman" class="tab-content hidden">
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pengumuman Terbaru</h2>
-        <p class="text-gray-600">Informasi penting seputar kegiatan OSIS</p>
+      <div class="mb-4 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Pengumuman Terbaru</h2>
+        <p class="text-gray-600 text-sm sm:text-base">Informasi penting seputar kegiatan OSIS</p>
       </div>
 
-      <div class="space-y-6">
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">Rapat Tidur OSIS</h3>
-              <div class="flex items-center text-sm text-gray-500 mb-3">
+      <div class="space-y-4 sm:space-y-6">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-4 mb-3 sm:mb-4">
+            <div class="w-full">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800 mb-2">Rapat Tidur OSIS</h3>
+              <div class="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
                 <i class="fas fa-calendar-alt mr-2"></i>
                 <span>15 Maret 2025</span>
                 <span class="mx-2">•</span>
@@ -918,23 +1182,23 @@
                 <span>13:00 - 15:00 WIB</span>
               </div>
             </div>
-            <span class="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full announcement-badge">Penting</span>
+            <span class="bg-blue-100 text-blue-800 text-xs sm:text-sm font-semibold px-2 sm:px-3 py-1 rounded-full announcement-badge self-start">Penting</span>
           </div>
-          <p class="text-gray-600 mb-4">Diberitahukan kepada seluruh pengurus OSIS untuk menghadiri rapat tidur bulanan yang akan dilaksanakan di Lab Sekolah.</p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Diberitahukan kepada seluruh pengurus OSIS untuk menghadiri rapat tidur bulanan yang akan dilaksanakan di Lab Sekolah.</p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+            <div class="flex items-center text-xs sm:text-sm text-gray-500">
               <i class="fas fa-user mr-2"></i>
               <span>Dra. Hj. Iba Sabirin (Pembina OSIS)</span>
             </div>
-            <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Baca Selengkapnya →</a>
+            <a href="#" class="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium">Baca Selengkapnya →</a>
           </div>
         </div>
 
-        <div class="card bg-white p-6 shadow-lg">
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">Pendaftaran Peserta Lomba Debat</h3>
-              <div class="flex items-center text-sm text-gray-500 mb-3">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <div class="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-4 mb-3 sm:mb-4">
+            <div class="w-full">
+              <h3 class="text-base sm:text-xl font-bold text-gray-800 mb-2">Pendaftaran Peserta Lomba Debat</h3>
+              <div class="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-2 sm:mb-3">
                 <i class="fas fa-calendar-alt mr-2"></i>
                 <span>20 - 25 Maret 2025</span>
                 <span class="mx-2">•</span>
@@ -942,18 +1206,18 @@
                 <span>08:00 - 14:00 WIB</span>
               </div>
             </div>
-            <span class="bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full announcement-badge">Aktif</span>
+            <span class="bg-green-100 text-green-800 text-xs sm:text-sm font-semibold px-2 sm:px-3 py-1 rounded-full announcement-badge self-start">Aktif</span>
           </div>
-          <p class="text-gray-600 mb-4">Bagi siswa yang berminat mengikuti lomba debat bahasa Inggris tingkat kota, dapat mendaftar di ruang OSIS.</p>
-          <div class="flex items-center justify-between">
-            <div class="flex items-center text-sm text-gray-500">
+          <p class="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4">Bagi siswa yang berminat mengikuti lomba debat bahasa Inggris tingkat kota, dapat mendaftar di ruang OSIS.</p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+            <div class="flex items-center text-xs sm:text-sm text-gray-500">
               <i class="fas fa-user mr-2"></i>
               <span>Yanti Hariyuni(Anggota Bidang Prestasi)</span>
             </div>
             <!-- Ganti "LINK_DISINI" dengan link asli nanti -->
           <a href="https://docs.google.com/document/d/1YfNV5ggnUHp_aA66Pa8abKLBozGNmCmouIfjJkMzpaI/edit?usp=drivesdk" 
            target="_blank" 
-         class="text-blue-600 hover:text-blue-800 text-sm font-medium hover:underline transition">Baca Selengkapnya →</a>
+         class="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium hover:underline transition">Baca Selengkapnya →</a>
           </div>
         </div>
       </div>
@@ -961,79 +1225,79 @@
 
     <!-- Galeri Tab -->
     <div id="tab-galeri" class="tab-content hidden">
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Galeri Kegiatan</h2>
-        <p class="text-gray-600">Dokumentasi kegiatan OSIS SMA Negeri 6 Medan</p>
+      <div class="mb-4 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Galeri Kegiatan</h2>
+        <p class="text-gray-600 text-sm sm:text-base">Dokumentasi kegiatan OSIS SMA Negeri 6 Medan</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-blue-100 to-blue-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://image2url.com/r2/default/images/1771477234959-ef7da6c9-6e71-4522-a0c2-78233187631e.jpg" alt="Pelantikan" class="w-74 h-48">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-blue-100 to-blue-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://image2url.com/r2/default/images/1771477234959-ef7da6c9-6e71-4522-a0c2-78233187631e.jpg" alt="Pelantikan" class="w-full h-full object-cover">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Rapat Pengesahan Program Kerja 2026</h3>
-          <p class="text-gray-600 text-sm mb-3">Rapat pembahasan dan pengesahan program kerja tiap sekbid dan program kerja bersama untuk tahun 2026.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Rapat Pengesahan Program Kerja 2026</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Rapat pembahasan dan pengesahan program kerja tiap sekbid dan program kerja bersama untuk tahun 2026.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>23 Januari 2026</span>
           </div>
         </div>
 
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-green-100 to-green-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://img.icons8.com/color/96/000000/leaf.png" alt="Penghijauan" class="w-74 h-48">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-green-100 to-green-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://img.icons8.com/color/96/000000/leaf.png" alt="Penghijauan" class="w-full h-full object-contain p-4">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Rapat Pengesahan AD/ART OSIS SMA Negeri 6 Medan</h3>
-          <p class="text-gray-600 text-sm mb-3">Rapat pembahasan dan pengesahan Anggaran Dasar dan Anggaran Rumah Tangga sebagai pedoman organisasi yang sah dan diakui.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Rapat Pengesahan AD/ART OSIS SMA Negeri 6 Medan</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Rapat pembahasan dan pengesahan Anggaran Dasar dan Anggaran Rumah Tangga sebagai pedoman organisasi yang sah dan diakui.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>27 Januari 2026</span>
           </div>
         </div>
 
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-purple-100 to-purple-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://image2url.com/r2/default/images/1771473997427-1ddfc0b3-e00c-444e-9165-f7fe787a4b6f.jpg" alt="Bimbingan" class="w-74 h-48">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-purple-100 to-purple-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://image2url.com/r2/default/images/1771473997427-1ddfc0b3-e00c-444e-9165-f7fe787a4b6f.jpg" alt="Bimbingan" class="w-full h-full object-cover">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Acara Lepas Sambut Kepala Sekolah SMA Negeri 6 Medan</h3>
-          <p class="text-gray-600 text-sm mb-3">Acara penyambutan kepala sekolah SMA Negeri 6 Medan Bapak Ahmad Habibi Dalimunthe S.Pd., M.Pd., dan pelepasan Plt. kepala sekolah SMA Negeri 6 Medan yang telah menjadi kepala sekolah defenitif SMA Negeri 21 Medan Ibu Teti Dian Sari S.Pd., M.Pd., Gr..</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Acara Lepas Sambut Kepala Sekolah SMA Negeri 6 Medan</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Acara penyambutan kepala sekolah SMA Negeri 6 Medan Bapak Ahmad Habibi Dalimunthe S.Pd., M.Pd., dan pelepasan Plt. kepala sekolah SMA Negeri 6 Medan yang telah menjadi kepala sekolah defenitif SMA Negeri 21 Medan Ibu Teti Dian Sari S.Pd., M.Pd., Gr..</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>27 Januari 2026</span>
           </div>
         </div>
 
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-orange-100 to-orange-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://image2url.com/r2/default/images/1771473376732-3d8c106d-2f64-4b9a-8abd-f139138aa08b.jpg" alt="Basket" class="w-74 h-48">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-orange-100 to-orange-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://image2url.com/r2/default/images/1771473376732-3d8c106d-2f64-4b9a-8abd-f139138aa08b.jpg" alt="Basket" class="w-full h-full object-cover">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Rapat Koordinasi 1 SMA 10</h3>
-          <p class="text-gray-600 text-sm mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 10 Medan dlam rangka pembahasan dan pngenalan awal program kerja serta posibilitas kerja sama.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Rapat Koordinasi 1 SMA 10</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 10 Medan dlam rangka pembahasan dan pngenalan awal program kerja serta posibilitas kerja sama.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>6 Februari 2026</span>
           </div>
         </div>
 
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-red-100 to-red-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://image2url.com/r2/default/images/1771473435145-dbcdc077-06f0-4a34-af06-aede277d3c41.jpg" alt="Bakti Sosial" class="w-74 h-48">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-red-100 to-red-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://image2url.com/r2/default/images/1771473435145-dbcdc077-06f0-4a34-af06-aede277d3c41.jpg" alt="Bakti Sosial" class="w-full h-full object-cover">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Rapat Koordinasi 1 SMA 18</h3>
-          <p class="text-gray-600 text-sm mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 18 Medan dalam rangka pengenalan dan pembahasan kemungkinan - kemungkinan kerja sama yang dapat dijalin untuk satu tahun masa periode.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Rapat Koordinasi 1 SMA 18</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 18 Medan dalam rangka pengenalan dan pembahasan kemungkinan - kemungkinan kerja sama yang dapat dijalin untuk satu tahun masa periode.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>9 Februari 2026</span>
           </div>
         </div>
 
-        <div class="card bg-white p-4 shadow-lg">
-          <div class="bg-gradient-to-br from-indigo-100 to-indigo-200 h-48 rounded-lg flex items-center justify-center mb-4">
-            <img src="https://image2url.com/r2/default/images/1771472964582-59f0d8c9-1fc0-4cdb-b416-4bc96e6958e6.jpg" alt="Seminar" class="w-74 h-48">
+        <div class="card bg-white p-3 sm:p-4 shadow-lg">
+          <div class="bg-gradient-to-br from-indigo-100 to-indigo-200 h-32 sm:h-48 rounded-lg flex items-center justify-center mb-3 sm:mb-4 overflow-hidden">
+            <img src="https://image2url.com/r2/default/images/1771472964582-59f0d8c9-1fc0-4cdb-b416-4bc96e6958e6.jpg" alt="Seminar" class="w-full h-full object-cover">
           </div>
-          <h3 class="text-lg font-bold text-gray-800 mb-2">Rapat Koordinasi 2 SMA 18</h3>
-          <p class="text-gray-600 text-sm mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 18 Medan dalam rangka perancangan program kerja bakti sosial bersama.</p>
-          <div class="flex items-center text-sm text-gray-500">
+          <h3 class="text-sm sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Rapat Koordinasi 2 SMA 18</h3>
+          <p class="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Rapat bersama pengurus inti OSIS SMA Negeri 18 Medan dalam rangka perancangan program kerja bakti sosial bersama.</p>
+          <div class="flex items-center text-xs sm:text-sm text-gray-500">
             <i class="fas fa-calendar-alt mr-2"></i>
             <span>13 Februari 2026</span>
           </div>
@@ -1043,103 +1307,103 @@
 
     <!-- Kontak Tab -->
     <div id="tab-kontak" class="tab-content hidden">
-      <div class="mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-2">Hubungi Kami</h2>
-        <p class="text-gray-600">Silakan hubungi pengurus OSIS untuk informasi lebih lanjut</p>
+      <div class="mb-4 sm:mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Hubungi Kami</h2>
+        <p class="text-gray-600 text-sm sm:text-base">Silakan hubungi pengurus OSIS untuk informasi lebih lanjut</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="card bg-white p-6 shadow-lg">
-          <h3 class="text-xl font-bold text-gray-800 mb-6">Informasi Kontak</h3>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
+        <div class="card bg-white p-4 sm:p-6 shadow-lg">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Informasi Kontak</h3>
           
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/school-building.png" alt="Sekolah" class="w-8 h-8">
+          <div class="space-y-4 sm:space-y-6">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/school-building.png" alt="Sekolah" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold text-gray-800">Alamat Sekolah</h4>
-                <p class="text-gray-600">Jl. Ansari No. 34, Kel. Sei Rengas 1<br>Kec. Medan Kota, Kota Medan<br>Sumatera Utara 20211</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-gray-800 text-sm sm:text-base">Alamat Sekolah</h4>
+                <p class="text-gray-600 text-xs sm:text-sm">Jl. Ansari No. 34, Kel. Sei Rengas 1<br>Kec. Medan Kota, Kota Medan<br>Sumatera Utara 20211</p>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold text-gray-800">Email OSIS</h4>
-                <p class="text-gray-600 mb-2">sman6.medan@gmail.com</p>
-                <button class="copy-email bg-gray-100 hover:bg-gray-200 text-gray-800 px-3 py-1 rounded text-sm transition">
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-gray-800 text-sm sm:text-base">Email OSIS</h4>
+                <p class="text-gray-600 text-xs sm:text-sm mb-2">sman6.medan@gmail.com</p>
+                <button class="copy-email bg-gray-100 hover:bg-gray-200 text-gray-800 px-2 sm:px-3 py-1 rounded text-xs sm:text-sm transition">
                   <i class="fas fa-copy mr-1"></i>Salin Email
                 </button>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Telepon" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Telepon" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold text-gray-800">Narahubung</h4>
-                <p class="text-gray-600">081234567890 (Tortor)</p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-gray-800 text-sm sm:text-base">Narahubung</h4>
+                <p class="text-gray-600 text-xs sm:text-sm">081234567890 (Tortor)</p>
               </div>
             </div>
 
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                <img src="https://img.icons8.com/color/48/000000/clock.png" alt="Jam" class="w-8 h-8">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start">
+              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-4">
+                <img src="https://img.icons8.com/color/48/000000/clock.png" alt="Jam" class="w-6 h-6 sm:w-8 sm:h-8">
               </div>
-              <div>
-                <h4 class="font-bold text-gray-800">Jam Operasional</h4>
-                <p class="text-gray-600">Senin - Jumat: 07:30 - 16:00 WIB<br></p>
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-gray-800 text-sm sm:text-base">Jam Operasional</h4>
+                <p class="text-gray-600 text-xs sm:text-sm">Senin - Jumat: 07:30 - 16:00 WIB<br></p>
               </div>
             </div>
           </div>
         </div>
         
       <!-- FAQ Section -->
-      <div class="card bg-white p-6 shadow-lg mt-8">
-        <h3 class="text-xl font-bold text-gray-800 mb-6">FAQ (Pertanyaan Umum)</h3>
+      <div class="card bg-white p-4 sm:p-6 shadow-lg mt-4 sm:mt-8">
+        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">FAQ (Pertanyaan Umum)</h3>
         
-        <div class="space-y-4">
-          <div class="border-b border-gray-200 pb-4">
-            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
-              <span class="font-medium">Bagaimana cara bergabung dengan OSIS?</span>
-              <i class="fas fa-chevron-down transition-transform"></i>
+        <div class="space-y-3 sm:space-y-4">
+          <div class="border-b border-gray-200 pb-3 sm:pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-1 sm:py-2 hover:text-blue-600 transition">
+              <span class="font-medium text-xs sm:text-sm">Bagaimana cara bergabung dengan OSIS?</span>
+              <i class="fas fa-chevron-down transition-transform text-xs sm:text-sm"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-600 mt-2">Pendaftaran calon pengurus OSIS dibuka setiap tahun pada bulan November. Siswa dapat mendaftar dengan melengkapi formulir pendaftaran yang akan disediakan.</p>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-xs sm:text-sm">Pendaftaran calon pengurus OSIS dibuka setiap tahun pada bulan November. Siswa dapat mendaftar dengan melengkapi formulir pendaftaran yang akan disediakan.</p>
             </div>
           </div>
 
-          <div class="border-b border-gray-200 pb-4">
-            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
-              <span class="font-medium">Apa saja persyaratan menjadi pengurus OSIS?</span>
-              <i class="fas fa-chevron-down transition-transform"></i>
+          <div class="border-b border-gray-200 pb-3 sm:pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-1 sm:py-2 hover:text-blue-600 transition">
+              <span class="font-medium text-xs sm:text-sm">Apa saja persyaratan menjadi pengurus OSIS?</span>
+              <i class="fas fa-chevron-down transition-transform text-xs sm:text-sm"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-600 mt-2">Siswa kelas X dan XI yang memiliki sikap dan perilaku yang baik, serta memiliki motivasi untuk berkontribusi bagi sekolah.</p>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-xs sm:text-sm">Siswa kelas X dan XI yang memiliki sikap dan perilaku yang baik, serta memiliki motivasi untuk berkontribusi bagi sekolah.</p>
             </div>
           </div>
 
-          <div class="border-b border-gray-200 pb-4">
-            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
-              <span class="font-medium">Kapan rapat OSIS dilaksanakan?</span>
-              <i class="fas fa-chevron-down transition-transform"></i>
+          <div class="border-b border-gray-200 pb-3 sm:pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-1 sm:py-2 hover:text-blue-600 transition">
+              <span class="font-medium text-xs sm:text-sm">Kapan rapat OSIS dilaksanakan?</span>
+              <i class="fas fa-chevron-down transition-transform text-xs sm:text-sm"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-600 mt-2">Rapat dilaksanakan kebutuhan dengan pemberitahuan sebelumnya.</p>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-xs sm:text-sm">Rapat dilaksanakan kebutuhan dengan pemberitahuan sebelumnya.</p>
             </div>
           </div>
 
-          <div class="pb-4">
-            <button class="faq-question w-full text-left flex justify-between items-center py-2 hover:text-blue-600 transition">
-              <span class="font-medium">Bagaimana cara mengajukan proposal kegiatan?</span>
-              <i class="fas fa-chevron-down transition-transform"></i>
+          <div class="pb-3 sm:pb-4">
+            <button class="faq-question w-full text-left flex justify-between items-center py-1 sm:py-2 hover:text-blue-600 transition">
+              <span class="font-medium text-xs sm:text-sm">Bagaimana cara mengajukan proposal kegiatan?</span>
+              <i class="fas fa-chevron-down transition-transform text-xs sm:text-sm"></i>
             </button>
             <div class="faq-answer">
-              <p class="text-gray-600 mt-2">Proposal kegiatan dapat diajukan melalui koordinator bidang terkait atau langsung kepada sekretaris OSIS dengan melampirkan rincian kegiatan, anggaran, dan timeline pelaksanaan.</p>
+              <p class="text-gray-600 mt-1 sm:mt-2 text-xs sm:text-sm">Proposal kegiatan dapat diajukan melalui koordinator bidang terkait atau langsung kepada sekretaris OSIS dengan melampirkan rincian kegiatan, anggaran, dan timeline pelaksanaan.</p>
             </div>
           </div>
         </div>
@@ -1148,74 +1412,74 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-8 px-4 mt-12">
+  <footer class="bg-gray-800 text-white py-6 sm:py-8 px-3 sm:px-4 mt-8 sm:mt-12">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4">OSIS SMA Negeri 6 Medan</h3>
-          <p class="text-gray-400">Organisasi Siswa Intra Sekolah yang berkomitmen untuk memajukan sekolah melalui berbagai kegiatan positif dan inovatif.</p>
-          <div class="flex space-x-4 mt-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div class="text-center md:text-left">
+          <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">OSIS SMA Negeri 6 Medan</h3>
+          <p class="text-gray-400 text-xs sm:text-sm">Organisasi Siswa Intra Sekolah yang berkomitmen untuk memajukan sekolah melalui berbagai kegiatan positif dan inovatif.</p>
+          <div class="flex justify-center md:justify-start space-x-3 sm:space-x-4 mt-3 sm:mt-4">
             <!-- Instagram -->
             <a href="https://www.instagram.com/osissman6_mdn?igsh=ZjRqdmFmbnVkcjZp" target="_blank" class="text-gray-400 hover:text-pink-500 transition transform hover:scale-110">
-              <i class="fab fa-instagram text-2xl"></i>
+              <i class="fab fa-instagram text-xl sm:text-2xl"></i>
             </a>
             <!-- Facebook -->
             <a href="https://web.facebook.com/smanegeri6medan#" target="_blank" class="text-gray-400 hover:text-blue-600 transition transform hover:scale-110">
-              <i class="fab fa-facebook text-2xl"></i>
+              <i class="fab fa-facebook text-xl sm:text-2xl"></i>
             </a>
             <!-- Twitter -->
             <a href="https://twitter.com/sman6medan" target="_blank" class="text-gray-400 hover:text-blue-400 transition transform hover:scale-110">
-              <i class="fab fa-twitter text-2xl"></i>
+              <i class="fab fa-twitter text-xl sm:text-2xl"></i>
             </a>
             <!-- YouTube -->
             <a href="https://youtube.com/@smanegeri6medan?si=cZef4IoIefeacTTa" target="_blank" class="text-gray-400 hover:text-red-600 transition transform hover:scale-110">
-              <i class="fab fa-youtube text-2xl"></i>
+              <i class="fab fa-youtube text-xl sm:text-2xl"></i>
             </a>
             <!-- TikTok -->
             <a href="https://www.tiktok.com/@smansix_?_r=1&_t=ZS-942gl4ikvZd" target="_blank" class="text-gray-400 hover:text-black transition transform hover:scale-110">
-              <i class="fab fa-tiktok text-2xl"></i>
+              <i class="fab fa-tiktok text-xl sm:text-2xl"></i>
             </a>
           </div>
         </div>
 
-        <div>
-          <h3 class="text-xl font-bold mb-4">Link Cepat</h3>
-          <ul class="space-y-2">
-            <li><a href="#beranda" class="text-gray-400 hover:text-white transition">Beranda</a></li>
-            <li><a href="#struktur" class="text-gray-400 hover:text-white transition">Struktur Organisasi</a></li>
-            <li><a href="#progja" class="text-gray-400 hover:text-white transition">Program Kerja</a></li>
-            <li><a href="#pengumuman" class="text-gray-400 hover:text-white transition">Pengumuman</a></li>
-            <li><a href="#galeri" class="text-gray-400 hover:text-white transition">Galeri</a></li>
-            <li><a href="#kontak" class="text-gray-400 hover:text-white transition">Kontak</a></li>
+        <div class="text-center md:text-left">
+          <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Link Cepat</h3>
+          <ul class="space-y-1 sm:space-y-2">
+            <li><a href="#beranda" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Beranda</a></li>
+            <li><a href="#struktur" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Struktur Organisasi</a></li>
+            <li><a href="#progja" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Program Kerja</a></li>
+            <li><a href="#pengumuman" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Pengumuman</a></li>
+            <li><a href="#galeri" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Galeri</a></li>
+            <li><a href="#kontak" class="text-gray-400 hover:text-white transition text-xs sm:text-sm">Kontak</a></li>
             <!-- Link Pengaduan di Footer -->
-            <li><a href="https://forms.google.com" target="_blank" class="text-red-400 hover:text-red-300 transition flex items-center gap-2">
+            <li><a href="https://forms.google.com" target="_blank" class="text-red-400 hover:text-red-300 transition flex items-center justify-center md:justify-start gap-2 text-xs sm:text-sm">
               <i class="fas fa-exclamation-triangle"></i> Form Pengaduan
             </a></li>
           </ul>
         </div>
 
-        <div>
-          <h3 class="text-xl font-bold mb-4">Kontak Darurat</h3>
-          <div class="space-y-2">
-            <p class="text-gray-400 flex items-center">
-              <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Phone" class="w-4 h-4 mr-2">
+        <div class="text-center md:text-left">
+          <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Kontak Darurat</h3>
+          <div class="space-y-1 sm:space-y-2">
+            <p class="text-gray-400 flex items-center justify-center md:justify-start text-xs sm:text-sm">
+              <img src="https://img.icons8.com/color/48/000000/phone.png" alt="Phone" class="w-3 h-3 sm:w-4 sm:h-4 mr-2">
               <span>(061) 452 1234</span>
             </p>
-            <p class="text-gray-400 flex items-center">
-              <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-4 h-4 mr-2">
+            <p class="text-gray-400 flex items-center justify-center md:justify-start text-xs sm:text-sm">
+              <img src="https://img.icons8.com/color/48/000000/email.png" alt="Email" class="w-3 h-3 sm:w-4 sm:h-4 mr-2">
               <span>osis@sman6medan.sch.id</span>
             </p>
-            <p class="text-gray-400 flex items-center">
-              <img src="https://img.icons8.com/color/48/000000/marker.png" alt="Location" class="w-4 h-4 mr-2">
+            <p class="text-gray-400 flex items-center justify-center md:justify-start text-xs sm:text-sm">
+              <img src="https://img.icons8.com/color/48/000000/marker.png" alt="Location" class="w-3 h-3 sm:w-4 sm:h-4 mr-2">
               <span>Jl. Ansari No. 34, Medan</span>
             </p>
           </div>
         </div>
       </div>
 
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-        <p class="text-gray-400">&copy; 2025 OSIS SMA Negeri 6 Medan. All rights reserved.</p>
-        <p class="text-gray-500 text-sm mt-2">Website dikembangkan oleh Bidang 9: Dokumentasi & Teknologi</p>
+      <div class="border-t border-gray-700 mt-6 sm:mt-8 pt-4 sm:pt-8 text-center">
+        <p class="text-gray-400 text-xs sm:text-sm">&copy; 2025 OSIS SMA Negeri 6 Medan. All rights reserved.</p>
+        <p class="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">Website dikembangkan oleh Bidang 9: Dokumentasi & Teknologi</p>
       </div>
     </div>
   </footer>
