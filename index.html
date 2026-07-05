@@ -986,13 +986,6 @@ SDGS.forEach(g=>{
   });
   sdgGrid.appendChild(tile);
 });
-// open first goal by default
-sdgGrid.firstChild.click();
-  
-// Scroll ke bagian tentang
-window.addEventListener('load', function() {
-  document.getElementById('tentang').scrollIntoView({ behavior: 'smooth' });
-});
 
 const bidangGrid = document.getElementById('bidangGrid');
 BIDANG.forEach((b,idx)=>{
@@ -1166,7 +1159,7 @@ spySections.forEach(sec=> spyObserver.observe(sec));
 
 /* count-up hero stats */
 const statEls = document.querySelectorAll('.stat-card b');
-const statTargets = [17,77,9,9];
+const statTargets = [17,77,9,3];
 statEls.forEach((el,idx)=>{
   const target = statTargets[idx];
   let current = 0;
