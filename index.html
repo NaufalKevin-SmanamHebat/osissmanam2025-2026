@@ -988,6 +988,11 @@ SDGS.forEach(g=>{
 });
 // open first goal by default
 sdgGrid.firstChild.click();
+  
+// Scroll ke bagian tentang
+window.addEventListener('load', function() {
+  document.getElementById('tentang').scrollIntoView({ behavior: 'smooth' });
+});
 
 const bidangGrid = document.getElementById('bidangGrid');
 BIDANG.forEach((b,idx)=>{
