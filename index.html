@@ -853,40 +853,42 @@ const UNITS = [
   ["🌍","Biro Informasi","Satu wadah untuk penyaluran informsi akurat, resmi, cepat, dan sebagai wadah jajak pendapat bagi siswa SMA Negeri 6 Medan."]
 ];
 
+// BARS dengan format: [nama, total, selesai, berjalan, rencana]
 const BARS = [
-  ["Pendidikan & Literasi",23,6],
-  ["Kesehatan & Kesejahteraan",17,5],
-  ["Lingkungan & Iklim",9,5],
-  ["Sosial & Kesetaraan",10,6],
-  ["Ekonomi & Kewirausahaan",5,4],
-  ["Kemitraan & Kelembagaan",14,7]
+  ["Pendidikan & Literasi", 23, 6, 7, 10],
+  ["Kesehatan & Kesejahteraan", 17, 5, 6, 6],
+  ["Lingkungan & Iklim", 9, 5, 2, 2],
+  ["Sosial & Kesetaraan", 10, 6, 2, 2],
+  ["Ekonomi & Kewirausahaan", 5, 4, 0, 1],
+  ["Kemitraan & Kelembagaan", 14, 7, 5, 2]
 ];
 
+// DOCS dengan format: [judul, kategori, warna, url_gambar]
 const DOCS = [
-  ["Soon","Sosial","#E5243B",],
-  ["Soon","Kesehatan","#4C9F38"],
-  ["Soon","Pendidikan","#C5192D"],
-  ["Soon","Lingkungan","#3F7E44"],
-  ["Soon","Ekonomi","#A21942"],
-  ["Soon","Kelembagaan","#00689D"],
-  ["Soon","Inovasi","#FD6925"],
-  ["Soon","Lingkungan","#26BDE2"]
+  ["Soon","Sosial","#E5243B","https://via.placeholder.com/400x200/E5243B/FFFFFF?text=Soon"],
+  ["Soon","Kesehatan","#4C9F38","https://via.placeholder.com/400x200/4C9F38/FFFFFF?text=Soon"],
+  ["Soon","Pendidikan","#C5192D","https://via.placeholder.com/400x200/C5192D/FFFFFF?text=Soon"],
+  ["Soon","Lingkungan","#3F7E44","https://via.placeholder.com/400x200/3F7E44/FFFFFF?text=Soon"],
+  ["Soon","Ekonomi","#A21942","https://via.placeholder.com/400x200/A21942/FFFFFF?text=Soon"],
+  ["Soon","Kelembagaan","#00689D","https://via.placeholder.com/400x200/00689D/FFFFFF?text=Soon"],
+  ["Soon","Inovasi","#FD6925","https://via.placeholder.com/400x200/FD6925/FFFFFF?text=Soon"],
+  ["Soon","Lingkungan","#26BDE2","https://via.placeholder.com/400x200/26BDE2/FFFFFF?text=Soon"]
 ];
 
 const FACTS = [
   "SDGs terdiri dari 17 tujuan, 169 target, dan lebih dari 230 indikator untuk mengukur kemajuan dunia menuju tahun 2030.",
   "Setiap SDG memiliki warna dan ikon unik agar mudah dikenali di seluruh dunia.",
   "Motto SDGs adalah <b>Leave No One Behind</b>, yang berarti tidak ada seorang pun yang boleh tertinggal dalam pembangunan.",
-  " 💧 Sekitar 2 miliar orang di dunia masih belum memiliki akses terhadap air minum yang dikelola dengan aman, sehingga SDG 6 masih menjadi tantangan besar.",
+  "💧 Sekitar 2 miliar orang di dunia masih belum memiliki akses terhadap air minum yang dikelola dengan aman, sehingga SDG 6 masih menjadi tantangan besar.",
   "🌳 Hutan menyerap miliaran ton karbon dioksida setiap tahun, sehingga melindungi hutan berarti membantu mencapai beberapa SDG sekaligus.",
   "Sekitar 71% permukaan Bumi tertutup oleh air, tetapi kurang dari 1% air di Bumi dapat langsung digunakan sebagai air tawar.",
-  "Setiap kelas yang mengadopsi satu pohon berarti ikut menjaga Tujuan 15: Ekosistem Daratan."
-  "Komodo bisa mencium bau mangsa dari jarak hingga beberapa kilometer hanya dengan menjulurkan lidahnya.."
-  "🌴 Indonesia adalah produsen minyak sawit terbesar di dunia #nyawit."
-  "Indonesia memiliki potensi energi panas bumi (geothermal) terbesar di dunia, diperkirakan sekitar 40% dari total potensi dunia."
-  "Bika Ambon justru berasal dari Medan, bukan dari Provinsi Ambon."
-  "Medan merupakan pusat ekonomi terbesar di Pulau Sumatera."
-  "🚂 Kereta Bandara Kualanamu menjadi layanan kereta bandara pertama di Indonesia."
+  "Setiap kelas yang mengadopsi satu pohon berarti ikut menjaga Tujuan 15: Ekosistem Daratan.",
+  "Komodo bisa mencium bau mangsa dari jarak hingga beberapa kilometer hanya dengan menjulurkan lidahnya.",
+  "🌴 Indonesia adalah produsen minyak sawit terbesar di dunia #nyawit.",
+  "Indonesia memiliki potensi energi panas bumi (geothermal) terbesar di dunia, diperkirakan sekitar 40% dari total potensi dunia.",
+  "Bika Ambon justru berasal dari Medan, bukan dari Provinsi Ambon.",
+  "Medan merupakan pusat ekonomi terbesar di Pulau Sumatera.",
+  "🚂 Kereta Bandara Kualanamu menjadi layanan kereta bandara pertama di Indonesia.",
   "Sampai saat ini, OSIS SMA Negeri 6 Medan telah menjalin kerja sama dengan 5 SMA/MA Negeri di Kota Medan."
 ];
 
@@ -1020,38 +1022,52 @@ UNITS.forEach(([icon,name,desc])=>{
   unitGrid.appendChild(card);
 });
 
+// BARS - Progress Bar dengan 3 warna
 const barList = document.getElementById('barList');
-BARS.forEach(([label,total,done])=>{
-  const pct = Math.round((done/total)*100);
+BARS.forEach(([label, total, selesai, berjalan, rencana])=>{
+  const pctSelesai = Math.round((selesai/total)*100);
+  const pctBerjalan = Math.round((berjalan/total)*100);
+  const pctRencana = Math.round((rencana/total)*100);
+  
   const row = document.createElement('div');
   row.className = 'bar-row';
   row.innerHTML = `
-    <div class="lbl"><span>${label}</span><span class="n">${done}/${total} program</span></div>
-    <div class="bar-track"><div class="bar-fill" data-pct="${pct}"></div></div>
+    <div class="lbl"><span>${label}</span><span class="n">${selesai} selesai · ${berjalan} berjalan · ${rencana} rencana</span></div>
+    <div style="display:flex;gap:4px;height:10px;border-radius:99px;overflow:hidden;background:var(--paper-2);">
+      <div class="bar-fill selesai" style="width:${pctSelesai}%;background:#1B998B;"></div>
+      <div class="bar-fill berjalan" style="width:${pctBerjalan}%;background:#2E86C1;"></div>
+      <div class="bar-fill rencana" style="width:${pctRencana}%;background:#F1C40F;"></div>
+    </div>
   `;
   barList.appendChild(row);
 });
 
+// DOCS - Dokumentasi dengan gambar
 const docGrid = document.getElementById('docGrid');
 const lightbox = document.getElementById('lightbox');
 const lbThumb = document.getElementById('lbThumb');
 const lbTitle = document.getElementById('lbTitle');
 const lbTag = document.getElementById('lbTag');
-DOCS.forEach(([title,tag,color])=>{
+
+DOCS.forEach(([title,tag,color,imageUrl])=>{
   const card = document.createElement('div');
   card.className = 'doc-card';
   card.innerHTML = `
-    <div class="doc-thumb" style="background:linear-gradient(135deg, ${color}, #0B2942);">🖼️</div>
+    <div class="doc-thumb" style="background:linear-gradient(135deg, ${color}, #0B2942);">
+      <img src="${imageUrl}" alt="${title}" style="width:100%;height:100%;object-fit:cover;">
+    </div>
     <div class="doc-body"><div class="tag">${tag}</div><h4>${title}</h4></div>
   `;
   card.addEventListener('click', ()=>{
     lbThumb.style.background = `linear-gradient(135deg, ${color}, #0B2942)`;
+    lbThumb.innerHTML = `<img src="${imageUrl}" alt="${title}" style="width:100%;height:100%;object-fit:cover;">`;
     lbTitle.textContent = title;
-    lbTag.textContent = tag + " · Ganti dengan foto dokumentasi asli";
+    lbTag.textContent = tag + " · Dokumentasi kegiatan";
     lightbox.classList.add('open');
   });
   docGrid.appendChild(card);
 });
+
 document.getElementById('lbClose').addEventListener('click', ()=> lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('open'); });
 
@@ -1063,47 +1079,66 @@ NEWS.forEach(([date,text])=>{
   newsList.appendChild(item);
 });
 
-/* progress ring */
-const doneTotal = 3, ongoingTotal = 25, allTotal = 77;
+/* Progress Ring - 3 warna */
+const doneTotal = 3, ongoingTotal = 25, planTotal = 49, allTotal = 77;
 const circumference = 2*Math.PI*82;
 const ringSelesai = document.getElementById('ringSelesai');
 const ringBerjalan = document.getElementById('ringBerjalan');
-ringSelesai.style.strokeDasharray = `${circumference}`;
-ringBerjalan.style.strokeDasharray = `${circumference}`;
-ringSelesai.style.strokeDashoffset = circumference;
-ringBerjalan.style.strokeDashoffset = circumference;
+const ringRencana = document.getElementById('ringRencana');
+
+if(ringSelesai && ringBerjalan && ringRencana){
+  ringSelesai.style.strokeDasharray = `${circumference}`;
+  ringBerjalan.style.strokeDasharray = `${circumference}`;
+  ringRencana.style.strokeDasharray = `${circumference}`;
+  ringSelesai.style.strokeDashoffset = circumference;
+  ringBerjalan.style.strokeDashoffset = circumference;
+  ringRencana.style.strokeDashoffset = circumference;
+}
 
 function animateRings(){
   const selesaiLen = circumference*(doneTotal/allTotal);
   const berjalanLen = circumference*(ongoingTotal/allTotal);
-  ringSelesai.style.transition = 'stroke-dashoffset 1.2s ease';
-  ringBerjalan.style.transition = 'stroke-dashoffset 1.2s ease';
-  ringSelesai.style.strokeDashoffset = circumference - selesaiLen;
-  ringBerjalan.style.strokeDasharray = `${berjalanLen} ${circumference}`;
-  ringBerjalan.style.strokeDashoffset = -selesaiLen;
+  const rencanaLen = circumference*(planTotal/allTotal);
+  
+  if(ringSelesai) {
+    ringSelesai.style.transition = 'stroke-dashoffset 1.2s ease';
+    ringSelesai.style.strokeDashoffset = circumference - selesaiLen;
+  }
+  if(ringBerjalan) {
+    ringBerjalan.style.transition = 'stroke-dashoffset 1.2s ease';
+    ringBerjalan.style.strokeDasharray = `${berjalanLen} ${circumference}`;
+    ringBerjalan.style.strokeDashoffset = -selesaiLen;
+  }
+  if(ringRencana) {
+    ringRencana.style.transition = 'stroke-dashoffset 1.2s ease';
+    ringRencana.style.strokeDasharray = `${rencanaLen} ${circumference}`;
+    ringRencana.style.strokeDashoffset = -(selesaiLen + berjalanLen);
+  }
 }
 
-/* animate bars + rings on scroll into view */
+/* Observer untuk animasi */
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       if(entry.target.id === 'progress'){
         animateRings();
-        document.querySelectorAll('.bar-fill').forEach(el=>{
-          el.style.width = el.dataset.pct + '%';
-        });
+        // Bar sudah memiliki width inline, tidak perlu di-set lagi
       }
       io.unobserve(entry.target);
     }
   });
 },{threshold:.3});
-io.observe(document.getElementById('progress'));
+
+const progressSection = document.getElementById('progress');
+if(progressSection) io.observe(progressSection);
 
 /* mobile nav toggle */
 const navToggle = document.getElementById('navToggle');
 const navLinksEl = document.getElementById('navLinks');
-navToggle.addEventListener('click', ()=> navLinksEl.classList.toggle('show'));
-navLinksEl.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> navLinksEl.classList.remove('show')));
+if(navToggle) {
+  navToggle.addEventListener('click', ()=> navLinksEl.classList.toggle('show'));
+  navLinksEl.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> navLinksEl.classList.remove('show')));
+}
 
 /* fun fact widget */
 const factText = document.getElementById('factText');
