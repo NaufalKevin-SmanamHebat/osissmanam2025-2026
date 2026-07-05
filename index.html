@@ -997,12 +997,12 @@ BIDANG.forEach((b,idx)=>{
     <span class="idx">${String(idx+1).padStart(2,'0')}</span>
     <div class="info">
       <p class="nama-bidang">${b.nama}</p>
-      <p class="pengurus-bidang"><strong>Pengurus:</strong> ${b.pengurus}</p>
+      <p class="pengurus-bidang"><strong>Koordinator:</strong> ${b.koordinator}</p>
     </div>
   `;
   // Klik untuk menampilkan alert dengan nama pengurus
   card.addEventListener('click', ()=>{
-    alert(`Bidang: ${b.nama}\nPengurus: ${b.pengurus}`);
+    alert(`Bidang: ${b.nama}\nKoordinator: ${b.koordinator}`);
   });
   bidangGrid.appendChild(card);
 });
