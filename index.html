@@ -546,7 +546,7 @@
     </div>
     <div class="filter-row">
       <div class="search-box">
-        🔍 <input type="text" id="searchProgram" placeholder="Cari program kerja, mis. 'donor darah'...">
+        🔍 <input type="text" id="searchProgram" placeholder="Cari program kerja, mis. 'ECHO'...">
       </div>
       <div class="chip-row" id="statusChips">
         <button class="chip active" data-status="semua">Semua</button>
@@ -580,7 +580,7 @@
       <div class="org-row-sekben">
         <div class="org-sub">
           <span class="label">Sekretaris</span>
-          <div class="org-node">Sekretaris 1<span class="nama">Nia Amelia Putri</span></div>
+          <div class="org-node">Sekretaris<span class="nama">Nia Amelia Putri</span></div>
           <div class="org-node" style="background:var(--paper-2);color:var(--ink);border:1.5px solid var(--line);min-width:120px;font-weight:500;">Wakil Sekretaris<span class="nama">Aisya Fidya Rokhma</span></div>
         </div>
         <div class="org-sub">
@@ -600,7 +600,7 @@
     <div class="sec-head">
       <div class="eyebrow">Ekosistem Siswa</div>
       <h2>Organisasi &amp; unit kegiatan di bawah naungan OSIS</h2>
-      <p>OSIS mengoordinasikan sejumlah organisasi dan ekstrakurikuler agar program kerja dan kalender kegiatan saling terhubung.</p>
+      <p>OSIS mengoordinasikan dan membentuk sejumlah organisasi untuk efisiensi kerja dan pelebaran sayap gerak.</p>
     </div>
     <div class="unit-grid" id="unitGrid"></div>
   </div>
@@ -625,8 +625,8 @@
   <text x="100" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#5C6B7A">PROGRAM KERJA</text>
       </svg>
         <div class="ring-legend">
-          <div><i style="background:#1B998B"></i> Selesai (3)</div>
-          <div><i style="background:#2E86C1"></i> Berjalan (25)</div>
+          <div><i style="background:#1B998B"></i> Selesai (4)</div>
+          <div><i style="background:#2E86C1"></i> Berjalan (24)</div>
           <div><i style="background:#F1C40F"></i> Direncanakan (49)</div>
         </div>
       </div>
@@ -644,7 +644,7 @@
       <p>Cuplikan kegiatan dari berbagai program kerja lintas bidang.</p>
     </div>
     <div class="doc-grid" id="docGrid"></div>
-    <div class="doc-note">Placeholder galeri — ganti setiap kartu dengan foto dokumentasi asli kegiatan (format JPG/PNG) saat website ini diisi datanya.</div>
+    <div class="doc-note">Placeholder galeri.</div>
   </div>
 </section>
 
@@ -658,8 +658,8 @@
     <div class="news-grid">
       <div class="news-feature">
         <div class="eyebrow">Sorotan</div>
-        <h3>OSIS Luncurkan "Bulan Aksi Iklim" di Seluruh Kelas X–XII</h3>
-        <p>Rangkaian kegiatan penanaman pohon, edukasi jejak karbon, dan Car Free Day sekolah akan digelar serentak untuk mendukung Tujuan 13: Penanganan Perubahan Iklim.</p>
+        <h3>Menyambut MPLS Ramah OSIS SMA Negeri 6 Medan kebut progres program kerja</h3>
+        <p>Rangkaian kegiatan disusun secara sistematis untuk mendukung berjalannya program kerja sekaligus memperkaya kualitas MPLS Ramah 2026.</p>
       </div>
       <div class="news-list" id="newsList"></div>
     </div>
@@ -674,7 +674,7 @@
         <div class="eyebrow" style="color:#FBE3DC;">Saluran Aspirasi</div>
         <h2>Punya aduan, saran, atau laporan?</h2>
         <p>Sampaikan langsung melalui formulir resmi OSIS. Identitas pelapor dapat dirahasiakan sesuai kebijakan formulir.</p>
-        <div class="report-note">Tombol ini terhubung ke Google Form — ganti tautan pada atribut href sesuai formulir pengaduan resmi sekolah Anda.</div>
+        <div class="report-note">Tombol ini terhubung ke Google Form.</div>
       </div>
       <div>
         <a class="btn btn-light" id="reportBtn" href="https://forms.gle/qJzTSDHojUF8GP7i6" target="_blank" rel="noopener">Buka Form Pengaduan ↗</a>
@@ -723,8 +723,8 @@
     <div>
       <h4>Kontak</h4>
       <ul>
-        <li>osis@sman6medan.sch.id</li>
-        <li>Instagram @osissman6mdn</li>
+        <li>email : soon</li>
+        <li>Instagram : @osissman6mdn</li>
         <li><a href="#pengaduan">Form Pengaduan Resmi</a></li>
       </ul>
     </div>
@@ -855,24 +855,24 @@ const UNITS = [
 
 // BARS dengan format: [nama, total, selesai, berjalan, rencana]
 const BARS = [
-  ["Pendidikan & Literasi", 23, 6, 7, 10],
-  ["Kesehatan & Kesejahteraan", 17, 5, 6, 6],
-  ["Lingkungan & Iklim", 9, 5, 2, 2],
-  ["Sosial & Kesetaraan", 10, 6, 2, 2],
-  ["Ekonomi & Kewirausahaan", 5, 4, 0, 1],
-  ["Kemitraan & Kelembagaan", 14, 7, 5, 2]
+  ["Pendidikan & Literasi", 17, 0, 6, 11],
+  ["Kesehatan & Kesejahteraan", 13, 0, 4, 9],
+  ["Lingkungan & Iklim", 11, 0, 1, 10],
+  ["Sosial & Kesetaraan", 6, 1, 2, 3],
+  ["Ekonomi & Kewirausahaan", 9, 0, 3, 6],
+  ["Kemitraan & Kelembagaan", 21, 3, 8, 10]
 ];
 
 // DOCS dengan format: [judul, kategori, warna, url_gambar]
 const DOCS = [
-  ["Soon","Sosial","#E5243B","https://via.placeholder.com/400x200/4C9F38/FFFFFF?text=Soon"],
-  ["Soon","Kesehatan","#4C9F38","https://via.placeholder.com/400x200/4C9F38/FFFFFF?text=Soon"],
-  ["Soon","Pendidikan","#C5192D","https://via.placeholder.com/400x200/C5192D/FFFFFF?text=Soon"],
-  ["Soon","Lingkungan","#3F7E44","https://via.placeholder.com/400x200/3F7E44/FFFFFF?text=Soon"],
-  ["Soon","Ekonomi","#A21942","https://via.placeholder.com/400x200/A21942/FFFFFF?text=Soon"],
-  ["Soon","Kelembagaan","#00689D","https://via.placeholder.com/400x200/00689D/FFFFFF?text=Soon"],
-  ["Soon","Inovasi","#FD6925","https://via.placeholder.com/400x200/FD6925/FFFFFF?text=Soon"],
-  ["Soon","Lingkungan","#26BDE2","https://via.placeholder.com/400x200/26BDE2/FFFFFF?text=Soon"]
+  ["Persiapan Qurban 2026","Sosial","#E5243B","https://cdn.corenexis.com/f/5DkkeBkS02v.jpg"],
+  ["Kunjungan ke Panti Asuhan Bersama OSIS SMAN 18 Medan","Sosial","#4C9F38","https://cdn.corenexis.com/f/3D6mA1QYbhH.jpg"],
+  ["Pembukaan Hardiknas Fest 2026","Pendidikan","#C5192D","https://cdn.corenexis.com/f/IDADyB7SUZY.jpg"],
+  ["Upacara Peringatan Hari Pendidikan Nasional 2026","Pendidikan","#3F7E44","https://cdn.corenexis.com/f/pxnnMFP7OLo.jpg"],
+  ["Berbagi Takjil","Sosial","#A21942","https://cdn.corenexis.com/f/2V7EylziyQE.jpg"],
+  ["Rapat Pelepasan Kelas 12","Kelembagaan","#00689D","https://cdn.corenexis.com/f/kPGt0rWvgBR.jpg"],
+  ["Perlombaan Catur Dare to Dream Fest 2026","Pendidikan","#FD6925","https://cdn.corenexis.com/f/ojtLy2pnmpW.jpg"],
+  ["Kegiatan Senyum Sapa Salam","Kelembagaan","#26BDE2","https://cdn.corenexis.com/f/Jj6rboJOafu.jpg"]
 ];
 
 const FACTS = [
@@ -901,7 +901,7 @@ const FAQS = [
 
 const NEWS = [
   ["Soon","soon."],
-  ["Soon","soon."],
+  ["06 Juli","OSIS SMA Negeri 6 Medan menghadirkan website baru."],
   ["02 Juli","Biro Informasi SMA Negeri 6 Medan menghadirkan backdrop baru untuk penyampaian informasi"],
   ["03 Juli","OSIS SMA Negeri 6 Medan secara resmi menggalakkan penggunaan twibbon untuk MPLS Ramah 2026"],
   ["19 Juni","Libur panjang menghampiri, 20 Juni - 12 Juli merupakan hari libur untuk peserta didik."]
@@ -1080,7 +1080,7 @@ NEWS.forEach(([date,text])=>{
 });
 
 /* Progress Ring - 3 warna */
-const doneTotal = 3, ongoingTotal = 25, planTotal = 49, allTotal = 77;
+const doneTotal = 4, ongoingTotal = 24, planTotal = 49, allTotal = 77;
 const circumference = 2*Math.PI*82;
 const ringSelesai = document.getElementById('ringSelesai');
 const ringBerjalan = document.getElementById('ringBerjalan');
